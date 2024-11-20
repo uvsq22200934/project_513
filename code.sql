@@ -1,3 +1,6 @@
+--CREATION DE TABLE
+
+
 -- Table FILMSERIE
 CREATE TABLE FILMSERIE (
     id_film INT,
@@ -136,18 +139,22 @@ CREATE TABLE TRAVAILLE (
 
 --CONTRAINTE
 
+-- garantir que le prix d'un abonnement est positif
 ALTER TABLE ABONNE
 ADD CONSTRAINT prix_positif CHECK (prix_abo >= 0);
 
+-- garantir la durée maximale d'un contrat, et la date de début est non null
 ALTER TABLE TRAVAILLE
 ADD CONSTRAINT duree_maximale CHECK (
     date_contrat_fin <= DATE_ADD(date_contrat_debut, INTERVAL 10 YEAR) -- Vérifie que la fin est dans 10 ans
     AND date_contrat_debut IS NOT NULL -- Vérifie que la date de début n'est pas nulle
 );
 
+-- garantir la chronologie des dates de contrats
 ALTER TABLE TRAVAILLE
 ADD CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin);
 
+-- garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
 ALTER TABLE FILMSERIE
 ADD CONSTRAINT pictogramme_combinaison_check
 CHECK (
@@ -160,6 +167,7 @@ CHECK (
     )
 );
 
+-- garantir que le spectateur a l'âge requit pour visionner un film
 CREATE TRIGGER check_age_restriction
 BEFORE INSERT ON VISIONNE
 FOR EACH ROW
@@ -189,5 +197,24 @@ BEGIN
     END IF;
 END;
 
+-- garantir que le champ de n°épisode et n°saison est remplie pour les séries mais pas pour les films
+CREATE TRIGGER check_saison_episode_not_null
+BEFORE INSERT ON FILMSERIE
+FOR EACH ROW
+BEGIN
+    -- Si le type est une série
+    IF NEW.type = 'série' THEN
+        -- Vérifier que num_saison et num_episode ne sont pas NULL
+        IF NEW.num_saison IS NULL THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Le champ num_saison ne peut pas être NULL pour une série.';
+        END IF;
+        
+        IF NEW.num_episode IS NULL THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Le champ num_episode ne peut pas être NULL pour une série.';
+        END IF;
+    END IF;
+END;
 
 
