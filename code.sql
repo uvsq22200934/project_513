@@ -59,8 +59,8 @@ CREATE TABLE SPECTATEUR (
     id_spectateur INT PRIMARY KEY,
     nom VARCHAR(255),
     prenom VARCHAR(255),
-    age INT,
-    sexe VARCHAR(50) -- Peut être 'Homme', 'Femme', 'Autre', etc.
+    age INT CHECK (age >= 16),
+    sexe VARCHAR(50) -- Peut être 'Homme', 'Femme'
 );
 
 -- Table CRITIQUE
