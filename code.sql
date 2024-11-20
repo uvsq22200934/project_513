@@ -85,7 +85,7 @@ CREATE TABLE DIFFUSE (
     id_film INT,
     id_plateforme INT,
     date_dispo DATE,
-    duree_dispo INT, -- durée en jours
+    duree_dispo INT CHECK (duree_dispo > 0), -- durée en jours
     PRIMARY KEY (id_film, id_plateforme),
     FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
@@ -108,7 +108,7 @@ CREATE TABLE ABONNE (
     id_plateforme INT,
     id_spectateur INT,
     date_abo DATE,
-    prix_abo DECIMAL(5, 2),
+    prix_abo DECIMAL(5, 2) CHECK (prix_abo >= 0),
     PRIMARY KEY (id_plateforme, id_spectateur),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme),
     FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
@@ -138,10 +138,6 @@ CREATE TABLE TRAVAILLE (
 );
 
 --CONTRAINTE
-
--- garantir que le prix d'un abonnement est positif
-ALTER TABLE ABONNE
-ADD CONSTRAINT prix_positif CHECK (prix_abo >= 0);
 
 -- garantir la durée maximale d'un contrat, et la date de début est non null
 ALTER TABLE TRAVAILLE
@@ -216,5 +212,12 @@ BEGIN
         END IF;
     END IF;
 END;
+
+
+
+
+
+
+
 
 
