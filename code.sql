@@ -134,5 +134,60 @@ CREATE TABLE TRAVAILLE (
     FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film)
 );
 
+--CONTRAINTE
+
 ALTER TABLE ABONNE
 ADD CONSTRAINT prix_positif CHECK (prix_abo >= 0);
+
+ALTER TABLE TRAVAILLE
+ADD CONSTRAINT duree_maximale CHECK (
+    date_contrat_fin <= DATE_ADD(date_contrat_debut, INTERVAL 10 YEAR) -- Vérifie que la fin est dans 10 ans
+    AND date_contrat_debut IS NOT NULL -- Vérifie que la date de début n'est pas nulle
+);
+
+ALTER TABLE TRAVAILLE
+ADD CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin);
+
+ALTER TABLE FILMSERIE
+ADD CONSTRAINT pictogramme_combinaison_check
+CHECK (
+    NOT (
+        -- Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "-18"
+        (pictogramme LIKE '%-12%' AND pictogramme LIKE'%-16%' AND pictogramme LIKE '%-18%')
+        OR
+        -- Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
+        (pictogramme LIKE '%-12%' or pictogramme LIKE'%-16%' AND pictogramme LIKE '%contenu explicite%')
+    )
+);
+
+CREATE TRIGGER check_age_restriction
+BEFORE INSERT ON VISIONNE
+FOR EACH ROW
+BEGIN
+    DECLARE restriction_age INT;
+    DECLARE spectateur_age INT;
+
+    -- Récupérer l'âge du spectateur
+    SELECT age INTO spectateur_age
+    FROM SPECTATEUR
+    WHERE id_spectateur = NEW.id_spectateur;
+
+    -- Récupérer la restriction d'âge du film 
+    SELECT pictogramme INTO restriction_age
+    FROM FILMSERIE
+    WHERE id_film = NEW.id_film;
+
+    -- Vérifier si le pictogramme existe
+    IF restriction_age IS NOT NULL THEN
+        SET restriction_age = ABS(CAST(restriction_age AS SIGNED));
+
+        -- Vérifier si l'âge du spectateur est inférieur à la restriction d'âge du film
+        IF spectateur_age < restriction_age THEN
+            SIGNAL SQLSTATE '45000' --message d'erreur personnalisé
+            SET MESSAGE_TEXT = 'Vous n''êtes pas autorisé à visionner ce film en raison de sa restriction d''âge.';
+        END IF;
+    END IF;
+END;
+
+
+
