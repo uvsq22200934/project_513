@@ -44,11 +44,11 @@ CREATE TABLE LANGUE (
     id_langue INT PRIMARY KEY,
     code VARCHAR(10) NOT NULL UNIQUE, -- Ex : FR, EN, ES
     nom_langue VARCHAR(255) NOT NULL -- Ex : Français, Anglais, Espagnol
-)
+);
 -- Table DISPONIBLE
 CREATE TABLE DISPONIBLE (
     id_film INT, -- Film ou série concerné(e)
-    langue_audio VARCHAR(10),  -- Code de langue pour l'audio (ex : FR, EN, etc.)
+    langue_audio VARCHAR(10) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
     langue_sous_titre VARCHAR(10), -- Code de langue pour les sous-titres
     PRIMARY KEY (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
     FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film) -- Référence au film
@@ -59,8 +59,8 @@ CREATE TABLE SPECTATEUR (
     id_spectateur INT PRIMARY KEY,
     nom VARCHAR(255),
     prenom VARCHAR(255),
-    age INT CHECK (age >= 16),
-    sexe VARCHAR(50) -- Peut être 'Homme', 'Femme'
+    age INT CHECK (age >= 16)
+    sexe VARCHAR(50) CHECK (type IN ('Homme', 'Femme')),
 );
 
 -- Table CRITIQUE
@@ -138,6 +138,10 @@ CREATE TABLE TRAVAILLE (
 );
 
 --CONTRAINTE
+
+ALTER TABLE VISIONNE 
+    ADD langue_audio VARCHAR(10) NOT NULL, 
+    ADD langue_sous_titre VARCHAR(10) DEFAULT NULL;
 
 --création d'dune ligne en update pour la date de la critique
 ALTER TABLE CRITIQUE ADD COLUMN date_critique DATETIME DEFAULT CURRENT_TIMESTAMP;
@@ -280,6 +284,43 @@ BEGIN
     -- Vérifier si le genre n'est pas "court-métrage" et que la durée est inférieure à 40 minutes
     IF genre_film != 'court-métrage' AND NEW.duree < 40 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Un long-métrage doit avoir une durée d\'au moins 40 minutes.';
+        SET MESSAGE_TEXT = "Un long-métrage doit avoir une durée d\'au moins 40 minutes.";
     END IF;
 END;
+
+--garantir la disponibilité de la langue
+CREATE TRIGGER check_langues_disponibles
+BEFORE INSERT ON VISIONNE
+FOR EACH ROW
+BEGIN
+    DECLARE langue_disponible INT;
+    
+    -- Vérifier si la langue audio est disponible pour le film dans la table DISPONIBLE
+    SELECT COUNT(*)
+    INTO langue_disponible
+    FROM DISPONIBLE
+    WHERE id_film = NEW.id_film
+      AND langue_audio = NEW.langue_audio;
+    
+    -- Si la langue audio n'est pas disponible, générer une erreur
+    IF langue_disponible = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = "La langue audio spécifiée n'est pas disponible pour ce film.";
+    END IF;
+
+    -- Vérifier si la langue des sous-titres est spécifiée et si elle est disponible
+    IF NEW.langue_sous_titre IS NOT NULL THEN
+        SELECT COUNT(*)
+        INTO langue_disponible
+        FROM DISPONIBLE
+        WHERE id_film = NEW.id_film
+          AND langue_sous_titre = NEW.langue_sous_titre;
+        
+        -- Si la langue des sous-titres n'est pas disponible, générer une erreur
+        IF langue_disponible = 0 THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
+        END IF;
+    END IF;
+END
+/
