@@ -4,7 +4,7 @@
 -- Table FILMSERIE
 CREATE TABLE FILMSERIE (
     id_film INT,
-    type VARCHAR(50),
+    type VARCHAR(50) CHECK (type IN ('film', 'série')),
     titre VARCHAR(255) NOT NULL,
     num_saison INT,
     num_episode INT,
@@ -139,31 +139,39 @@ CREATE TABLE TRAVAILLE (
 
 --CONTRAINTE
 
--- garantir la durée maximale d'un contrat, et la date de début est non null
+--création d'dune ligne en update pour la date de la critique
+ALTER TABLE CRITIQUE ADD COLUMN date_critique DATETIME DEFAULT CURRENT_TIMESTAMP;
+
+--garantir la durée maximale d'un contrat, et la date de début est non null
 ALTER TABLE TRAVAILLE
 ADD CONSTRAINT duree_maximale CHECK (
-    date_contrat_fin <= DATE_ADD(date_contrat_debut, INTERVAL 10 YEAR) -- Vérifie que la fin est dans 10 ans
-    AND date_contrat_debut IS NOT NULL -- Vérifie que la date de début n'est pas nulle
+    date_contrat_fin <= DATE_ADD(date_contrat_debut, INTERVAL 10 YEAR) --Vérifie que la fin est dans 10 ans
+    AND date_contrat_debut IS NOT NULL --Vérifie que la date de début n'est pas nulle
 );
 
--- garantir la chronologie des dates de contrats
+--garantir la chronologie des dates de contrats
 ALTER TABLE TRAVAILLE
 ADD CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin);
 
--- garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
+--garantir que la date d'abonnement est antérieure à la date actuelle
+ALTER TABLE ABONNE
+ADD CONSTRAINT check_date_abo
+CHECK (date_abo <= CURRENT_DATE);
+
+--garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
 ALTER TABLE FILMSERIE
 ADD CONSTRAINT pictogramme_combinaison_check
 CHECK (
     NOT (
-        -- Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "-18"
+        --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "-18"
         (pictogramme LIKE '%-12%' AND pictogramme LIKE'%-16%' AND pictogramme LIKE '%-18%')
         OR
-        -- Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
+        --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
         (pictogramme LIKE '%-12%' or pictogramme LIKE'%-16%' AND pictogramme LIKE '%contenu explicite%')
     )
 );
 
--- garantir que le spectateur a l'âge requit pour visionner un film
+--garantir que le spectateur a l'âge requit pour visionner un film
 CREATE TRIGGER check_age_restriction
 BEFORE INSERT ON VISIONNE
 FOR EACH ROW
@@ -171,21 +179,21 @@ BEGIN
     DECLARE restriction_age INT;
     DECLARE spectateur_age INT;
 
-    -- Récupérer l'âge du spectateur
+    --Récupérer l'âge du spectateur
     SELECT age INTO spectateur_age
     FROM SPECTATEUR
     WHERE id_spectateur = NEW.id_spectateur;
 
-    -- Récupérer la restriction d'âge du film 
+    --Récupérer la restriction d'âge du film 
     SELECT pictogramme INTO restriction_age
     FROM FILMSERIE
     WHERE id_film = NEW.id_film;
 
-    -- Vérifier si le pictogramme existe
+    --Vérifier si le pictogramme existe
     IF restriction_age IS NOT NULL THEN
         SET restriction_age = ABS(CAST(restriction_age AS SIGNED));
 
-        -- Vérifier si l'âge du spectateur est inférieur à la restriction d'âge du film
+        --Vérifier si l'âge du spectateur est inférieur à la restriction d'âge du film
         IF spectateur_age < restriction_age THEN
             SIGNAL SQLSTATE '45000' --message d'erreur personnalisé
             SET MESSAGE_TEXT = 'Vous n''êtes pas autorisé à visionner ce film en raison de sa restriction d''âge.';
@@ -193,14 +201,14 @@ BEGIN
     END IF;
 END;
 
--- garantir que le champ de n°épisode et n°saison est remplie pour les séries mais pas pour les films
+--garantir que le champ de n°épisode et n°saison est remplie pour les séries mais pas pour les films
 CREATE TRIGGER check_saison_episode_not_null
 BEFORE INSERT ON FILMSERIE
 FOR EACH ROW
 BEGIN
-    -- Si le type est une série
+    --Si le type est une série
     IF NEW.type = 'série' THEN
-        -- Vérifier que num_saison et num_episode ne sont pas NULL
+        --Vérifier que num_saison et num_episode ne sont pas NULL
         IF NEW.num_saison IS NULL THEN
             SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Le champ num_saison ne peut pas être NULL pour une série.';
@@ -213,11 +221,65 @@ BEGIN
     END IF;
 END;
 
+--garantir une critique par spectateur par jour
+CREATE TRIGGER check_critique_one_per_day
+BEFORE INSERT ON CRITIQUE
+FOR EACH ROW
+BEGIN
+    DECLARE visionnage_existe INT;
+    DECLARE critique_existe INT;
 
+    --Vérifier si le spectateur a visionné le film
+    SELECT COUNT(*)
+    INTO visionnage_existe
+    FROM VISIONNE v
+    WHERE v.id_film = NEW.id_film
+      AND v.id_spectateur = NEW.id_spectateur;
 
+    --Si aucun visionnage trouvé, empêcher l'insertion
+    IF visionnage_existe = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Vous ne pouvez soumettre une critique que si vous avez visionné le film.';
+    END IF;
 
+    --Vérifier si une critique existe déjà pour ce film par ce spectateur à la date du jour
+    SELECT COUNT(*)
+    INTO critique_existe
+    FROM CRITIQUE c
+    WHERE c.id_film = NEW.id_film
+      AND c.id_spectateur = NEW.id_spectateur
+      AND DATE(c.date_critique) = CURRENT_DATE;
 
+    --Si une critique existe déjà pour aujourd'hui, empêcher l'insertion
+    IF critique_existe > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Vous ne pouvez soumettre qu''une critique par jour pour ce film.';
+    END IF;
+END;
 
+--garantir la cohérence entre le genre et la durée d'un film
+CREATE TRIGGER check_duree_court_metrage
+BEFORE INSERT ON FILMSERIE
+FOR EACH ROW
+BEGIN
+    DECLARE genre_film VARCHAR(255);
 
+    -- Récupérer le genre du film depuis la table CLASSER et CATEGORIE
+    SELECT c.genre
+    INTO genre_film
+    FROM CLASSER cl
+    JOIN CATEGORIE c ON cl.id_categorie = c.id_categorie
+    WHERE cl.id_film = NEW.id_film;
 
+    -- Vérifier si le genre est "court-métrage" et que la durée est supérieure ou égale à 40 minutes
+    IF genre_film = 'court-métrage' AND NEW.duree >= 40 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Un court-métrage doit avoir une durée inférieure à 40 minutes.';
+    END IF;
 
+    -- Vérifier si le genre n'est pas "court-métrage" et que la durée est inférieure à 40 minutes
+    IF genre_film != 'court-métrage' AND NEW.duree < 40 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Un long-métrage doit avoir une durée d\'au moins 40 minutes.';
+    END IF;
+END;
