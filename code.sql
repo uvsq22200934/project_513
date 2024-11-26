@@ -1,6 +1,5 @@
 --CREATION DE TABLE
 
-
 -- Table FILMSERIE
 CREATE TABLE FILMSERIE (
     id_film INT,
@@ -60,7 +59,7 @@ CREATE TABLE SPECTATEUR (
     nom VARCHAR(255),
     prenom VARCHAR(255),
     age INT CHECK (age >= 16)
-    sexe VARCHAR(50) CHECK (type IN ('Homme', 'Femme')),
+    sexe VARCHAR(50) CHECK (sexe IN ('Homme', 'Femme')),
 );
 
 -- Table CRITIQUE
@@ -322,5 +321,4 @@ BEGIN
             SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
         END IF;
     END IF;
-END
-/
+END:
