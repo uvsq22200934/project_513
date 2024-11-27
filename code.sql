@@ -1,12 +1,11 @@
 --CREATION DE TABLE
 
--- Table FILMSERIE
-CREATE TABLE FILMSERIE (
+-- Table FILMEPISODE
+CREATE TABLE FILMEPISODE (
     id_film INT,
     type VARCHAR(50) CHECK (type IN ('film', 'série')),
     titre VARCHAR(255) NOT NULL,
     num_saison INT,
-    num_episode INT,
     duree INT NOT NULL, -- durée en minutes
     date_sortie DATE,
     pictogramme VARCHAR(255) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
@@ -14,6 +13,12 @@ CREATE TABLE FILMSERIE (
     PRIMARY KEY (id_film)
 );
 
+-- Table SERIE
+CREATE TABLE SERIE (
+    id_serie INT,
+    nom_serie INT NOT NULL,
+    PRIMARY KEY (id_serie)
+)
 -- Table CATEGORIE
 CREATE TABLE CATEGORIE (
     id_categorie INT PRIMARY KEY,
@@ -25,7 +30,7 @@ CREATE TABLE CLASSER (
     id_categorie INT,
     id_film INT,
     FOREIGN KEY (id_categorie) REFERENCES CATEGORIE(id_categorie),
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film)
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
 
 -- Table PARENT
@@ -33,8 +38,8 @@ CREATE TABLE PARENT (
     id_film1 INT, -- Premier film/série dans la relation
     id_film2 INT, -- Second film/série dans la relation
     UNIQUE (id_film1, id_film2), -- Contrainte pour éviter les doublons
-    FOREIGN KEY (id_film1) REFERENCES FILMSERIE(id_film), -- Référence au film/série 1
-    FOREIGN KEY (id_film2) REFERENCES FILMSERIE(id_film) -- Référence au film/série 2
+    FOREIGN KEY (id_film1) REFERENCES FILMEPISODE(id_film), -- Référence au film/série 1
+    FOREIGN KEY (id_film2) REFERENCES FILMEPISODE(id_film) -- Référence au film/série 2
 );
 
 
@@ -50,7 +55,7 @@ CREATE TABLE DISPONIBLE (
     langue_audio VARCHAR(10) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
     langue_sous_titre VARCHAR(10), -- Code de langue pour les sous-titres
     PRIMARY KEY (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film) -- Référence au film
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) -- Référence au film
 );
 
 -- Table SPECTATEUR
@@ -69,7 +74,7 @@ CREATE TABLE CRITIQUE (
     id_spectateur INT,
     note INT CHECK (note BETWEEN 0 AND 10),
     commentaire TEXT,
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film),
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
 );
 
@@ -86,7 +91,7 @@ CREATE TABLE DIFFUSE (
     date_dispo DATE,
     duree_dispo INT CHECK (duree_dispo > 0), -- durée en jours
     PRIMARY KEY (id_film, id_plateforme),
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film),
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
 );
 
@@ -98,7 +103,7 @@ CREATE TABLE VISIONNE (
     date_visionnage DATE,
     temps_visionnage INT, -- temps en minutes
     temps_pause INT, -- temps de pause en minutes
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film),
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
 );
 
@@ -133,7 +138,7 @@ CREATE TABLE TRAVAILLE (
     date_contrat_fin DATE,
     salaire DECIMAL(10, 2),
     FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
-    FOREIGN KEY (id_film) REFERENCES FILMSERIE(id_film)
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
 
 --CONTRAINTE
@@ -162,7 +167,7 @@ ADD CONSTRAINT check_date_abo
 CHECK (date_abo <= CURRENT_DATE);
 
 --garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
-ALTER TABLE FILMSERIE
+ALTER TABLE FILMEPISODE
 ADD CONSTRAINT pictogramme_combinaison_check
 CHECK (
     NOT (
@@ -189,7 +194,7 @@ BEGIN
 
     --Récupérer la restriction d'âge du film 
     SELECT pictogramme INTO restriction_age
-    FROM FILMSERIE
+    FROM FILMEPISODE
     WHERE id_film = NEW.id_film;
 
     --Vérifier si le pictogramme existe
@@ -204,22 +209,16 @@ BEGIN
     END IF;
 END;
 
---garantir que le champ de n°épisode et n°saison est remplie pour les séries mais pas pour les films
+--garantir que le champ de n°épisode est rempli pour les séries mais pas pour les films
 CREATE TRIGGER check_saison_episode_not_null
-BEFORE INSERT ON FILMSERIE
+BEFORE INSERT ON FILMEPISODE
 FOR EACH ROW
 BEGIN
     --Si le type est une série
-    IF NEW.type = 'série' THEN
-        --Vérifier que num_saison et num_episode ne sont pas NULL
-        IF NEW.num_saison IS NULL THEN
-            SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Le champ num_saison ne peut pas être NULL pour une série.';
-        END IF;
-        
+    IF NEW.type = 'épisode' THEN
         IF NEW.num_episode IS NULL THEN
             SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Le champ num_episode ne peut pas être NULL pour une série.';
+            SET MESSAGE_TEXT = 'Le champ num_episode ne peut pas être NULL pour un épisode.';
         END IF;
     END IF;
 END;
@@ -262,7 +261,7 @@ END;
 
 --garantir la cohérence entre le genre et la durée d'un film
 CREATE TRIGGER check_duree_court_metrage
-BEFORE INSERT ON FILMSERIE
+BEFORE INSERT ON FILMEPISODE
 FOR EACH ROW
 BEGIN
     DECLARE genre_film VARCHAR(255);
@@ -294,20 +293,20 @@ FOR EACH ROW
 BEGIN
     DECLARE langue_disponible INT;
     
-    -- Vérifier si la langue audio est disponible pour le film dans la table DISPONIBLE
+    --vérifier si la langue audio est disponible pour le film dans la table DISPONIBLE
     SELECT COUNT(*)
     INTO langue_disponible
     FROM DISPONIBLE
     WHERE id_film = NEW.id_film
       AND langue_audio = NEW.langue_audio;
     
-    -- Si la langue audio n'est pas disponible, générer une erreur
+    --si la langue audio n'est pas disponible, générer une erreur
     IF langue_disponible = 0 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = "La langue audio spécifiée n'est pas disponible pour ce film.";
     END IF;
 
-    -- Vérifier si la langue des sous-titres est spécifiée et si elle est disponible
+    --vérifier si la langue des sous-titres est spécifiée et si elle est disponible
     IF NEW.langue_sous_titre IS NOT NULL THEN
         SELECT COUNT(*)
         INTO langue_disponible
@@ -315,7 +314,7 @@ BEGIN
         WHERE id_film = NEW.id_film
           AND langue_sous_titre = NEW.langue_sous_titre;
         
-        -- Si la langue des sous-titres n'est pas disponible, générer une erreur
+        --si la langue des sous-titres n'est pas disponible, générer une erreur
         IF langue_disponible = 0 THEN
             SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
@@ -323,7 +322,7 @@ BEGIN
     END IF;
 END;
 
---verifie que la version visionnée(audio et sous-titre) est disponible
+--vérifie que la version visionnée(audio et sous-titre) est disponible
 CREATE TRIGGER check_langues_disponibles
 BEFORE INSERT ON VISIONNE
 FOR EACH ROW
