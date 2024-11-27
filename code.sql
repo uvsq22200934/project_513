@@ -3,6 +3,7 @@
 -- Table FILMEPISODE
 CREATE TABLE FILMEPISODE (
     id_film INT,
+    id_serie INT,
     type VARCHAR(50) CHECK (type IN ('film', 'série')),
     titre VARCHAR(255) NOT NULL,
     num_saison INT,
@@ -10,7 +11,8 @@ CREATE TABLE FILMEPISODE (
     date_sortie DATE,
     pictogramme VARCHAR(255) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
     origine VARCHAR(255) CHECK (origine IN('Histoire vraie', 'fait divers', 'adaptation cinématographique')),
-    PRIMARY KEY (id_film)
+    PRIMARY KEY (id_film),
+    FOREIGN KEY (id_serie) REFERENCES SERIE(id_serie)
 );
 
 -- Table SERIE
