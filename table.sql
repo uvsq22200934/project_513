@@ -170,7 +170,8 @@ INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES
 (100, "Dumas", "Julien", 18, "Homme");
 
 
-INSERT INTO PERSONNALITE (id_personnalite, nom, prenom, metier) VALUES
+
+--JEUX DE DONNEES PERSONNE
 INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES
 ("DiCaprio", "Leonardo", "Homme", 49, "Acteur"),
 ("Depp", "Johnny", "Homme", 60, "Acteur"),
@@ -302,3 +303,39 @@ INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES
 ("Coogler", "Ryan", "Homme", 37, "Réalisateur"),
 ("Miller", "George", "Homme", 78, "Réalisateur"),
 ("Anderson", "Roy", "Homme", 80, "Réalisateur");
+
+
+--JEUX DE DONNEES PLATEFORME
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES 
+(1, 'Netflix'),
+(2, 'Amazon Prime Video'),
+(3, 'Disney+'),
+(4, 'HBO Max'),
+(5, 'Hulu'),
+(6, 'Apple TV+'),
+(7, 'Paramount+'),
+(8, 'Peacock'),
+(9, 'Canal+'),
+(10, 'Canal+ Séries'),
+(11, 'OCS'),
+(12, 'Salto'),
+(13, 'France.tv Premium'),
+(14, 'MyTF1 Max'),
+(15, '6play Max'),
+(16, 'Crunchyroll'),
+(17, 'Rakuten TV'),
+(18, 'Starz'),
+(19, 'Discovery+'),
+(20, 'Sky Go'),
+(21, 'Now TV'),
+(22, 'Viaplay'),
+(23, 'YouTube Premium'),
+(24, 'Viki'),
+(25, 'Shudder'),
+(26, 'Mubi'),
+(27, 'Arte.tv Premium'),
+(28, 'BBC iPlayer'),
+(29, 'Sony LIV'),
+(30, 'Zee5');
+
+

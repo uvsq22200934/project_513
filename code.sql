@@ -199,7 +199,7 @@ BEGIN
         --Vérifier si l'âge du spectateur est inférieur à la restriction d'âge du film
         IF spectateur_age < restriction_age THEN
             SIGNAL SQLSTATE '45000' --message d'erreur personnalisé
-            SET MESSAGE_TEXT = 'Vous n''êtes pas autorisé à visionner ce film en raison de sa restriction d''âge.';
+            SET MESSAGE_TEXT = "Vous n'êtes pas autorisé à visionner ce film en raison de sa restriction d'âge.";
         END IF;
     END IF;
 END;
@@ -256,7 +256,7 @@ BEGIN
     --Si une critique existe déjà pour aujourd'hui, empêcher l'insertion
     IF critique_existe > 0 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Vous ne pouvez soumettre qu''une critique par jour pour ce film.';
+        SET MESSAGE_TEXT = "Vous ne pouvez soumettre qu'une critique par jour pour ce film.";
     END IF;
 END;
 
@@ -283,7 +283,7 @@ BEGIN
     -- Vérifier si le genre n'est pas "court-métrage" et que la durée est inférieure à 40 minutes
     IF genre_film != 'court-métrage' AND NEW.duree < 40 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = "Un long-métrage doit avoir une durée d\'au moins 40 minutes.";
+        SET MESSAGE_TEXT = "Un long-métrage doit avoir une durée d'au moins 40 minutes.";
     END IF;
 END;
 
@@ -321,4 +321,39 @@ BEGIN
             SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
         END IF;
     END IF;
-END:
+END;
+
+--verifie que la version visionnée(audio et sous-titre) est disponible
+CREATE TRIGGER check_langues_disponibles
+BEFORE INSERT ON VISIONNE
+FOR EACH ROW
+BEGIN
+    DECLARE langue_audio_disponible INT;
+    DECLARE langue_sous_titre_disponible INT;
+
+    --vérifier si la langue audio est disponible pour le film
+    SELECT COUNT(*)
+    INTO langue_audio_disponible
+    FROM DISPONIBLE
+    WHERE id_film = NEW.id_film
+      AND langue_audio = NEW.langue_audio;
+
+    IF langue_audio_disponible = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = "La langue audio spécifiée n'est pas disponible pour ce film.";
+    END IF;
+
+    --vérifier si la langue des sous-titres est spécifiée et si elle est disponible
+    IF NEW.langue_sous_titre IS NOT NULL THEN
+        SELECT COUNT(*)
+        INTO langue_sous_titre_disponible
+        FROM DISPONIBLE
+        WHERE id_film = NEW.id_film
+          AND langue_sous_titre = NEW.langue_sous_titre;
+
+        IF langue_sous_titre_disponible = 0 THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
+        END IF;
+    END IF;
+END;
