@@ -18,7 +18,7 @@ CREATE TABLE FILMEPISODE (
 -- Table SERIE
 CREATE TABLE SERIE (
     id_serie INT,
-    nom_serie INT NOT NULL,
+    nom_serie VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_serie)
 )
 -- Table CATEGORIE
