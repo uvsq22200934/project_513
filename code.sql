@@ -9,8 +9,8 @@ CREATE TABLE FILMSERIE (
     num_episode INT,
     duree INT NOT NULL, -- durée en minutes
     date_sortie DATE,
-    pictogramme VARCHAR(255), -- chemin ou description du pictogramme
-    origine VARCHAR(255),
+    pictogramme VARCHAR(255) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
+    origine VARCHAR(255) CHECK (origine IN('Histoire vraie', 'fait divers', 'adaptation cinématographique')),
     PRIMARY KEY (id_film)
 );
 
