@@ -30,18 +30,22 @@ LIMIT 10;
 SELECT 
     p.nom AS nom_plateforme,
     SUM(
-        CASE 
-            WHEN a.date_abo < '2023-01-01' THEN 
-                LEAST(DATEDIFF(CURDATE(), '2023-01-01'), DATEDIFF(a.date_abo + INTERVAL 1 MONTH, '2023-01-01')) 
-            ELSE 
-                LEAST(DATEDIFF(CURDATE(), a.date_abo), 30)
-        END * (a.prix_abo / 30)
+        CASE
+            WHEN a.date_abo < '2023-01-01' THEN
+                GREATEST(0, LEAST(TIMESTAMPDIFF(MONTH, '2023-01-01', '2024-01-01'),
+                                  TIMESTAMPDIFF(MONTH, '2023-01-01', a.date_abo + INTERVAL a.duree_abo MONTH)))
+            ELSE
+                GREATEST(0, LEAST(TIMESTAMPDIFF(MONTH, a.date_abo, '2024-01-01'),
+                                  TIMESTAMPDIFF(MONTH, a.date_abo, a.date_abo + INTERVAL a.duree_abo MONTH)))
+        END * a.prix_abo
     ) AS revenus_totaux
-FROM PLATEFORME p, ABONNE a
-WHERE p.id_plateforme = a.id_plateforme
-AND a.date_abo < CURDATE()
-GROUP BY p.id_plateforme, p.nom
-ORDER BY revenus_totaux ASC;
+FROM PLATEFORME p
+JOIN ABONNE a ON p.id_plateforme = a.id_plateforme
+WHERE a.date_abo < '2024-01-01' 
+  AND a.date_abo + INTERVAL a.duree_abo MONTH > '2023-01-01'
+GROUP BY p.nom
+ORDER BY revenus_totaux DESC;
+
 
 
 --Quelle plateforme offre le plus grand nombre de films/séries ?
