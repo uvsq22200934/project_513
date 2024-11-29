@@ -101,9 +101,9 @@ CREATE TABLE ABONNE (
                         prix_abo DECIMAL(5, 2) CHECK (prix_abo >= 0),
                         duree_abo INT CHECK( duree_abo > 0), --temps en mois
                         PRIMARY KEY (id_plateforme, id_spectateur),
-                        FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme),
-                        FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
-);
+    FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme),
+    FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
+    );
 
 CREATE TABLE PERSONNE (
                           nom VARCHAR(255),
