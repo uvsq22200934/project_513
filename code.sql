@@ -1,16 +1,16 @@
---CREATION DE TABLE
+--CREATION DE TABLES
 
 -- Table FILMEPISODE
 CREATE TABLE FILMEPISODE (
     id_film INT,
     id_serie INT,
-    type VARCHAR(50) CHECK (type IN ('film', 'série')),
+    type VARCHAR(5) NOT NULL CHECK (type IN ('film', 'série')),
     titre VARCHAR(255) NOT NULL,
     num_saison INT,
     duree INT NOT NULL, -- durée en minutes
-    date_sortie DATE,
-    pictogramme VARCHAR(255) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
-    origine VARCHAR(255) CHECK (origine IN('Histoire vraie', 'fait divers', 'adaptation cinématographique')),
+    date_sortie DATE NOT NULL,
+    pictogramme VARCHAR(50) CHECK (pictogramme IN('mal-voyant', '-10', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tout public')),
+    origine VARCHAR(50) CHECK (origine IN('histoire vraie', 'faits divers', 'adaptation cinématographique')),
     PRIMARY KEY (id_film),
     FOREIGN KEY (id_serie) REFERENCES SERIE(id_serie)
 );
@@ -23,22 +23,23 @@ CREATE TABLE SERIE (
 )
 -- Table CATEGORIE
 CREATE TABLE CATEGORIE (
-    id_categorie INT PRIMARY KEY,
-    genre VARCHAR(255) NOT NULL
+    id_categorie INT,
+    genre VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_categorie)
 );
 
 -- Table CLASSER
 CREATE TABLE CLASSER (
-    id_categorie INT,
-    id_film INT,
+    id_categorie INT NOT NULL,
+    id_film INT NOT NULL,
     FOREIGN KEY (id_categorie) REFERENCES CATEGORIE(id_categorie),
     FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
 
 -- Table PARENT
 CREATE TABLE PARENT (
-    id_film1 INT, -- Premier film/série dans la relation
-    id_film2 INT, -- Second film/série dans la relation
+    id_film1 INT NOT NULL, -- Premier film/série dans la relation
+    id_film2 INT NOT NULL, -- Second film/série dans la relation
     UNIQUE (id_film1, id_film2), -- Contrainte pour éviter les doublons
     FOREIGN KEY (id_film1) REFERENCES FILMEPISODE(id_film), -- Référence au film/série 1
     FOREIGN KEY (id_film2) REFERENCES FILMEPISODE(id_film) -- Référence au film/série 2
@@ -47,51 +48,57 @@ CREATE TABLE PARENT (
 
 -- Table LANGUE
 CREATE TABLE LANGUE (
-    id_langue INT PRIMARY KEY,
-    code VARCHAR(10) NOT NULL UNIQUE, -- Ex : FR, EN, ES
-    nom_langue VARCHAR(255) NOT NULL -- Ex : Français, Anglais, Espagnol
+    id_langue INT,
+    code VARCHAR(3) NOT NULL UNIQUE, -- Ex : FR, EN, ES
+    nom_langue VARCHAR(100) NOT NULL, -- Ex : Français, Anglais, Espagnol
+    PRIMARY KEY (id_langue)
 );
 -- Table DISPONIBLE
 CREATE TABLE DISPONIBLE (
     id_film INT, -- Film ou série concerné(e)
-    langue_audio VARCHAR(10) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
-    langue_sous_titre VARCHAR(10), -- Code de langue pour les sous-titres
-    PRIMARY KEY (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) -- Référence au film
+    langue_audio VARCHAR(3) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
+    langue_sous_titre VARCHAR(3), -- Code de langue pour les sous-titres
+    UNIQUE (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film), -- Référence au film
+    FOREIGN KEY (langue_audio) REFERENCES LANGUE(code),
+    FOREIGN KEY (langue_sous_titre) REFERENCES LANGUE(code),
 );
 
 -- Table SPECTATEUR
 CREATE TABLE SPECTATEUR (
-    id_spectateur INT PRIMARY KEY,
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
+    id_spectateur INT,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL ,
     age INT CHECK (age >= 16)
-    sexe VARCHAR(50) CHECK (sexe IN ('Homme', 'Femme')),
+    sexe VARCHAR(5) CHECK (sexe IN ('Homme', 'Femme')),
+    PRIMARY KEY(id_spectateur)
 );
 
 -- Table CRITIQUE
 CREATE TABLE CRITIQUE (
-    id_critique INT PRIMARY KEY,
-    id_film INT,
-    id_spectateur INT,
-    note INT CHECK (note BETWEEN 0 AND 10),
+    id_critique INT,
+    id_film INT NOT NULL,
+    id_spectateur INT NOT NULL ,
+    note INT CHECK (note BETWEEN 0 AND 10) NOT NULL,
     commentaire TEXT,
+    PRIMARY KEY(id_critique),
     FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
 );
 
 -- Table PLATEFORME
 CREATE TABLE PLATEFORME (
-    id_plateforme INT PRIMARY KEY,
-    nom VARCHAR(255) NOT NULL
+    id_plateforme INT,
+    nom VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id_plateforme)
 );
 
 -- Table DIFFUSE
 CREATE TABLE DIFFUSE (
     id_film INT,
     id_plateforme INT,
-    date_dispo DATE,
-    duree_dispo INT CHECK (duree_dispo > 0), -- durée en jours
+    date_dispo DATE NOT NULL,
+    duree_dispo INT NOT NULL CHECK (duree_dispo > 0), -- durée en jours
     PRIMARY KEY (id_film, id_plateforme),
     FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
@@ -99,12 +106,13 @@ CREATE TABLE DIFFUSE (
 
 -- Table VISIONNE
 CREATE TABLE VISIONNE (
-    id_visionnage INT PRIMARY KEY,
-    id_film INT,
-    id_plateforme INT,
-    date_visionnage DATE,
-    temps_visionnage INT, -- temps en minutes
-    temps_pause INT, -- temps de pause en minutes
+    id_visionnage INT,
+    id_film INT NOT NULL ,
+    id_plateforme INT NOT NULL ,
+    date_visionnage DATE NOT NULL ,
+    temps_visionnage INT NOT NULL , -- temps en minutes
+    temps_pause INT NOT NULL , -- temps de pause en minutes
+    PRIMARY KEY(id_visionnage),
     FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
 );
@@ -113,9 +121,9 @@ CREATE TABLE VISIONNE (
 CREATE TABLE ABONNE (
     id_plateforme INT,
     id_spectateur INT,
-    date_abo DATE,
+    date_abo DATE NOT NULL,
     prix_abo DECIMAL(5, 2) CHECK (prix_abo >= 0),
-    duree_abo NUMBER CHECK (duree_abo> 1), --représenter en mois
+    duree_abo NUMBER NOT NULL CHECK (duree_abo> 1), --représenter en mois
     PRIMARY KEY (id_plateforme, id_spectateur),
     FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme),
     FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
@@ -127,24 +135,26 @@ CREATE TABLE PERSONNE (
     prenom VARCHAR(255),
     sexe VARCHAR(50),
     age INT,
-    metier VARCHAR(255),
+    metier VARCHAR(255) NOT NULL ,
     PRIMARY KEY (nom, prenom)
 );
 
 -- Table TRAVAILLE
 CREATE TABLE TRAVAILLE (
-    id_travaille INT PRIMARY KEY,
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
-    id_film INT,
+    id_travaille INT,
+    nom VARCHAR(255) NOT NULL ,
+    prenom VARCHAR(255) NOT NULL ,
+    id_film INT NOT NULL ,
     date_contrat_debut DATE,
     date_contrat_fin DATE,
     salaire DECIMAL(10, 2),
+    PRIMARY KEY(id_travaille),
     FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
     FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
 
---CONTRAINTE
+
+--CONTRAINTES
 
 ALTER TABLE VISIONNE 
     ADD langue_audio VARCHAR(10) NOT NULL, 
