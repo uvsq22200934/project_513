@@ -107,7 +107,6 @@ CREATE TABLE VISIONNE (
                           id_plateforme INT,
                           date_visionnage DATE,
                           temps_visionnage INT, -- temps en minutes
-                          temps_pause INT,-- temps de pause en minutes
                           langue_audio VARCHAR (15),
                           langue_sous_titre VARCHAR(15),
                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
