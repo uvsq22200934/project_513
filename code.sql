@@ -19,8 +19,7 @@ DROP TABLE SERIE;
 
 CREATE TABLE SERIE (
                        id_serie INT PRIMARY KEY ,
-                       nom_serie VARCHAR (25) NOT NULL,
-                       PRIMARY KEY (id_serie)
+                       nom_serie VARCHAR (25) NOT NULL
 );
 CREATE TABLE FILMEPISODE (
                            id_film INT,
@@ -55,8 +54,8 @@ CREATE TABLE PARENT (
 CREATE TABLE LANGUE (
                         id_langue INT PRIMARY KEY,
                         code VARCHAR(10) NOT NULL UNIQUE, -- Ex : FR, EN, ES
-                        nom_langue VARCHAR(30) NOT NULL, -- Ex : Français, Anglais, Espagnol
-                        PRIMARY KEY (id_langue)
+                        nom_langue VARCHAR(30) NOT NULL -- Ex : Français, Anglais, Espagnol
+
 );
 
 CREATE TABLE DISPONIBLE (
@@ -75,8 +74,7 @@ CREATE TABLE SPECTATEUR (
                             nom VARCHAR(30),
                             prenom VARCHAR(30),
                             age INT CHECK (age >= 16),
-                            sexe VARCHAR(15) CHECK (sexe IN ('Homme', 'Femme')),
-                            PRIMARY KEY(id_spectateur)
+                            sexe VARCHAR(15) CHECK (sexe IN ('Homme', 'Femme'))
 );
 
 CREATE TABLE CRITIQUE (
@@ -85,15 +83,13 @@ CREATE TABLE CRITIQUE (
                           id_spectateur INT,
                           note INT CHECK (note BETWEEN 0 AND 10),
                           commentaire VARCHAR(255),
-                          PRIMARY KEY(id_critique),
                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
                           FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE PLATEFORME (
                             id_plateforme INT PRIMARY KEY,
-                            nom VARCHAR(30) NOT NULL,
-                            PRIMARY KEY(id_plateforme)
+                            nom VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE DIFFUSE (
@@ -114,7 +110,6 @@ CREATE TABLE VISIONNE (
                           temps_pause INT,-- temps de pause en minutes
                           langue_audio VARCHAR (15),
                           langue_sous_titre VARCHAR(15),
-                          PRIMARY KEY(id_visionnage),
                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
                           FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE ON UPDATE CASCADE,
                           FOREIGN KEY (langue_audio) REFERENCES LANGUE(code) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -149,7 +144,6 @@ CREATE TABLE TRAVAILLE (
                            date_contrat_debut DATE,
                            date_contrat_fin DATE,
                            salaire DECIMAL(10, 2),
-                           PRIMARY KEY(id_travaille),
                            FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
                            FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
