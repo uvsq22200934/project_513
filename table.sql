@@ -1,341 +1,1162 @@
---JEUX DE DONNEES LANGUE--
-INSERT INTO LANGUE (code, nom_langue) VALUES
-( 'FR', 'Français'),
-( 'EN', 'Anglais'),
-( 'ES', 'Espagnol'),
-( 'DE', 'Allemand'),
-( 'IT', 'Italien'),
-( 'PT', 'Portugais'),
-( 'RU', 'Russe'),
-( 'ZH', 'Chinois (Mandarin)'),
-('JA', 'Japonais'),
-( 'KO', 'Coréen'),
-( 'AR', 'Arabe'),
-( 'HI', 'Hindi'),
-('BE', 'Bengali'),
-( 'PA', 'Punjabi'),
-( 'UR', 'Ourdou'),
-( 'TR', 'Turc'),
-( 'PL', 'Polonais'),
-( 'NL', 'Néerlandais'),
-( 'SV', 'Suédois'),
-( 'NO', 'Norvégien'),
-( 'DA', 'Danois'),
-( 'FI', 'Finnois'),
-( 'CS', 'Tchèque'),
-( 'EL', 'Grec'),
-( 'HE', 'Hébreu'),
-( 'TH', 'Thaïlandais'),
-( 'ID', 'Indonésien'),
-( 'MS', 'Malais'),
-( 'VI', 'Vietnamien'),
-( 'SW', 'Swahili');
+--JEUX DE DONNEES LANGUE
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(1, 'FR', 'Français');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(2, 'EN', 'Anglais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(3, 'ES', 'Espagnol');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(4, 'DE', 'Allemand');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(5, 'IT', 'Italien');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(6, 'PT', 'Portugais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(7, 'RU', 'Russe');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(8, 'ZH', 'Chinois (Mandarin)');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(9, 'JA', 'Japonais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(10, 'KO', 'Coréen');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(11, 'AR', 'Arabe');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(12, 'HI', 'Hindi');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(13, 'BE', 'Bengali');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(14, 'PA', 'Punjabi');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(15, 'UR', 'Ourdou');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(16, 'TR', 'Turc');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(17, 'PL', 'Polonais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(18, 'NL', 'Néerlandais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(19, 'SV', 'Suédois');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(20, 'NO', 'Norvégien');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(21, 'DA', 'Danois');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(22, 'FI', 'Finnois');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(23, 'CS', 'Tchèque');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(24, 'EL', 'Grec');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(25, 'HE', 'Hébreu');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(26, 'TH', 'Thaïlandais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(27, 'ID', 'Indonésien');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(28, 'MS', 'Malais');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(29, 'VI', 'Vietnamien');
+INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(30, 'SW', 'Swahili');
+
 
 --JEUX DE DONNEES CATEGORIE--
-INSERT INTO CATEGORIE (id_categorie, genre) VALUES
-(1, "Action"),
-(2, "Aventure"),
-(3, "Comédie"),
-(4, "Drame"),
-(5, "Science-fiction"),
-(6, "Fantastique"),
-(7, "Horreur"),
-(8, "Thriller"),
-(9, "Romance"),
-(10, "Animation"),
-(11, "Documentaire"),
-(12, "Policier"),
-(13, "Historique"),
-(14, "Musical"),
-(15, "Mystère"),
-(16, "Guerre"),
-(17, "Western"),
-(18, "Familial"),
-(19, "Biographique"),
-(20, "Sport"),
-(21, "Crime"),
-(22, "Anecdote"),
-(23, "Film noir"),
-(24, "Fantasy"),
-(25, "Epouvante"),
-(26, "Suspense"),
-(27, "Parodie"),
-(28, "Satire"),
-(29, "LGBTQ+"),
-(30, "Drame psychologique");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(1, "Action");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(2, "Aventure");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(3, "Comédie");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(4, "Drame");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(5, "Science-fiction");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(6, "Fantastique");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(7, "Horreur");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(8, "Thriller");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(9, "Romance");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(10, "Animation");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(11, "Documentaire");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(12, "Policier");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(13, "Historique");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(14, "Musical");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(15, "Mystère");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(16, "Guerre");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(17, "Western");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(18, "Familial");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(19, "Biographique");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(20, "Sport");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(21, "Crime");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(22, "Anecdote");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(23, "Film noir");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(24, "Fantasy");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(25, "Epouvante");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(26, "Suspense");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(27, "Parodie");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(28, "Satire");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(29, "LGBTQ+");
+INSERT INTO CATEGORIE (id_categorie, genre) VALUES(30, "Drame psychologique");
 
 
 
 --JEUX DE DONNEES SPECTATEURS--
-INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES
-(1, "Dupond", "Jean", 15, "Homme"),
-(2, "Martin", "Claire", 16, "Femme"),
-(3, "Lemoine", "Paul", 17, "Homme"),
-(4, "Durand", "Sophie", 18, "Femme"),
-(5, "Moreau", "Luc", 19, "Homme"),
-(6, "Lefevre", "Isabelle", 20, "Femme"),
-(7, "Roux", "Michel", 21, "Homme"),
-(8, "Perrin", "Juliette", 22, "Femme"),
-(9, "Gauthier", "Pierre", 23, "Homme"),
-(10, "Clement", "Nathalie", 24, "Femme"),
-(11, "Meyer", "Jean-Pierre", 25, "Homme"),
-(12, "Bernard", "Chantal", 26, "Femme"),
-(13, "Simon", "Jacques", 27, "Homme"),
-(14, "Barre", "Elise", 28, "Femme"),
-(15, "Boucher", "Thomas", 29, "Homme"),
-(16, "Robert", "Emilie", 30, "Femme"),
-(17, "Joly", "Victor", 31, "Homme"),
-(18, "Benoit", "Aline", 32, "Femme"),
-(19, "Lemoine", "Marc", 33, "Homme"),
-(20, "Fournier", "Carole", 34, "Femme"),
-(21, "Thomas", "Antoine", 35, "Homme"),
-(22, "Vincent", "Sabrina", 36, "Femme"),
-(23, "Leclerc", "Denis", 37, "Homme"),
-(24, "Lemoine", "Sandrine", 38, "Femme"),
-(25, "Brunet", "Georges", 39, "Homme"),
-(26, "Chauvin", "Mélanie", 40, "Femme"),
-(27, "Germain", "Guillaume", 41, "Homme"),
-(28, "Deschamps", "Adeline", 42, "Femme"),
-(29, "Blanc", "Michel", 43, "Homme"),
-(30, "Girard", "Sylvie", 44, "Femme"),
-(31, "Sauvage", "Jacqueline", 45, "Femme"),
-(32, "David", "Laurent", 46, "Homme"),
-(33, "Caron", "Monique", 47, "Femme"),
-(34, "Hughes", "Alain", 48, "Homme"),
-(35, "Deville", "Hélène", 49, "Femme"),
-(36, "Dupuis", "Denis", 50, "Homme"),
-(37, "Dufresne", "Marina", 51, "Femme"),
-(38, "Dumas", "Céline", 52, "Femme"),
-(39, "Richer", "Yannick", 53, "Homme"),
-(40, "Vasseur", "Mathilde", 54, "Femme"),
-(41, "Moulin", "Thierry", 55, "Homme"),
-(42, "Schmitt", "Sophie", 56, "Femme"),
-(43, "Robert", "Louis", 57, "Homme"),
-(44, "Mauger", "Valérie", 58, "Femme"),
-(45, "Benoit", "Marc", 59, "Homme"),
-(46, "Tanguy", "Isabelle", 60, "Femme"),
-(47, "Giraud", "Daniel", 45, "Homme"),
-(48, "Lopez", "Laura", 36, "Femme"),
-(49, "Renard", "Claude", 55, "Homme"),
-(50, "Charpentier", "Anne", 48, "Femme");
-(51, "Durand", "Lucas", 16, "Homme"),
-(52, "Lemoine", "Chloé", 22, "Femme"),
-(53, "Moreau", "Paul", 30, "Homme"),
-(54, "Roux", "Claire", 25, "Femme"),
-(55, "Lefevre", "Jean", 18, "Homme"),
-(56, "Dupont", "Sophie", 23, "Femme"),
-(57, "Thomas", "Michel", 33, "Homme"),
-(58, "Perrin", "Isabelle", 27, "Femme"),
-(59, "Barre", "Antoine", 40, "Homme"),
-(60, "Fournier", "Caroline", 29, "Femme"),
-(61, "Benoit", "Nicolas", 31, "Homme"),
-(62, "Clement", "Élise", 21, "Femme"),
-(63, "Gauthier", "Sébastien", 34, "Homme"),
-(64, "Meyer", "Aurélie", 26, "Femme"),
-(65, "Blanc", "Yannick", 44, "Homme"),
-(66, "Leclerc", "Juliette", 19, "Femme"),
-(67, "Girard", "Vincent", 38, "Homme"),
-(68, "Deschamps", "Marion", 22, "Femme"),
-(69, "Schmitt", "François", 47, "Homme"),
-(70, "Lemoine", "Marc", 36, "Homme"),
-(71, "Dupuis", "Laure", 41, "Femme"),
-(72, "Moulin", "Éric", 28, "Homme"),
-(73, "Richer", "Sophie", 32, "Femme"),
-(74, "Germain", "Guillaume", 50, "Homme"),
-(75, "Robert", "Monique", 56, "Femme"),
-(76, "Foley", "Julien", 17, "Homme"),
-(77, "Charpentier", "Lucie", 35, "Femme"),
-(78, "Tanguy", "Marc", 60, "Homme"),
-(79, "Boucher", "Aline", 25, "Femme"),
-(80, "Caron", "David", 33, "Homme"),
-(81, "Renard", "Caroline", 40, "Femme"),
-(82, "Roux", "Michel", 22, "Homme"),
-(83, "Vasseur", "Valérie", 48, "Femme"),
-(84, "Meyer", "Sébastien", 24, "Homme"),
-(85, "Leclerc", "Denis", 55, "Homme"),
-(86, "Joly", "Jacques", 19, "Homme"),
-(87, "Caron", "Mathilde", 21, "Femme"),
-(88, "Dufresne", "Amandine", 26, "Femme"),
-(89, "Sauvage", "Pierre", 39, "Homme"),
-(90, "Vasseur", "Thierry", 45, "Homme"),
-(91, "Benoit", "Martine", 52, "Femme"),
-(92, "Thomas", "Antoine", 34, "Homme"),
-(93, "Roux", "Virginie", 28, "Femme"),
-(94, "Blanc", "Michel", 29, "Homme"),
-(95, "Schmitt", "Sophie", 47, "Femme"),
-(96, "Bernard", "Laurent", 49, "Homme"),
-(97, "Tanguy", "Sophie", 30, "Femme"),
-(98, "Dupont", "Vincent", 37, "Homme"),
-(99, "Girard", "Christine", 31, "Femme"),
-(100, "Dumas", "Julien", 18, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(1, "Dupond", "Jean", 15, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(2, "Martin", "Claire", 16, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(3, "Lemoine", "Paul", 17, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(4, "Durand", "Sophie", 18, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(5, "Moreau", "Luc", 19, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(6, "Lefevre", "Isabelle", 20, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(7, "Roux", "Michel", 21, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(8, "Perrin", "Juliette", 22, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(9, "Gauthier", "Pierre", 23, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(10, "Clement", "Nathalie", 24, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(11, "Meyer", "Jean-Pierre", 25, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(12, "Bernard", "Chantal", 26, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(13, "Simon", "Jacques", 27, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(14, "Barre", "Elise", 28, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(15, "Boucher", "Thomas", 29, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(16, "Robert", "Emilie", 30, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(17, "Joly", "Victor", 31, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(18, "Benoit", "Aline", 32, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(19, "Lemoine", "Marc", 33, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(20, "Fournier", "Carole", 34, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(21, "Thomas", "Antoine", 35, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(22, "Vincent", "Sabrina", 36, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(23, "Leclerc", "Denis", 37, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(24, "Lemoine", "Sandrine", 38, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(25, "Brunet", "Georges", 39, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(26, "Chauvin", "Mélanie", 40, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(27, "Germain", "Guillaume", 41, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(28, "Deschamps", "Adeline", 42, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(29, "Blanc", "Michel", 43, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(30, "Girard", "Sylvie", 44, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(31, "Sauvage", "Jacqueline", 45, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(32, "David", "Laurent", 46, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(33, "Caron", "Monique", 47, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(34, "Hughes", "Alain", 48, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(35, "Deville", "Hélène", 49, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(36, "Dupuis", "Denis", 50, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(37, "Dufresne", "Marina", 51, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(38, "Dumas", "Céline", 52, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(39, "Richer", "Yannick", 53, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(40, "Vasseur", "Mathilde", 54, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(41, "Moulin", "Thierry", 55, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(42, "Schmitt", "Sophie", 56, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(43, "Robert", "Louis", 57, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(44, "Mauger", "Valérie", 58, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(45, "Benoit", "Marc", 59, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(46, "Tanguy", "Isabelle", 60, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(47, "Giraud", "Daniel", 45, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(48, "Lopez", "Laura", 36, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(49, "Renard", "Claude", 55, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(50, "Charpentier", "Anne", 48, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(51, "Durand", "Lucas", 16, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(52, "Lemoine", "Chloé", 22, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(53, "Moreau", "Paul", 30, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(54, "Roux", "Claire", 25, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(55, "Lefevre", "Jean", 18, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(56, "Dupont", "Sophie", 23, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(57, "Thomas", "Michel", 33, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(58, "Perrin", "Isabelle", 27, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(59, "Barre", "Antoine", 40, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(60, "Fournier", "Caroline", 29, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(61, "Benoit", "Nicolas", 31, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(62, "Clement", "Élise", 21, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(63, "Gauthier", "Sébastien", 34, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(64, "Meyer", "Aurélie", 26, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(65, "Blanc", "Yannick", 44, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(66, "Leclerc", "Juliette", 19, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(67, "Girard", "Vincent", 38, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(68, "Deschamps", "Marion", 22, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(69, "Schmitt", "François", 47, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(70, "Lemoine", "Marc", 36, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(71, "Dupuis", "Laure", 41, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(72, "Moulin", "Éric", 28, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(73, "Richer", "Sophie", 32, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(74, "Germain", "Guillaume", 50, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(75, "Robert", "Monique", 56, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(76, "Foley", "Julien", 17, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(77, "Charpentier", "Lucie", 35, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(78, "Tanguy", "Marc", 60, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(79, "Boucher", "Aline", 25, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(80, "Caron", "David", 33, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(81, "Renard", "Caroline", 40, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(82, "Roux", "Michel", 22, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(83, "Vasseur", "Valérie", 48, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(84, "Meyer", "Sébastien", 24, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(85, "Leclerc", "Denis", 55, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(86, "Joly", "Jacques", 19, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(87, "Caron", "Mathilde", 21, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(88, "Dufresne", "Amandine", 26, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(89, "Sauvage", "Pierre", 39, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(90, "Vasseur", "Thierry", 45, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(91, "Benoit", "Martine", 52, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(92, "Thomas", "Antoine", 34, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(93, "Roux", "Virginie", 28, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(94, "Blanc", "Michel", 29, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(95, "Schmitt", "Sophie", 47, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(96, "Bernard", "Laurent", 49, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(97, "Tanguy", "Sophie", 30, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(98, "Dupont", "Vincent", 37, "Homme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(99, "Girard", "Christine", 31, "Femme");
+INSERT INTO SPECTATEUR (id_spectateur, nom, prenom, age, sexe) VALUES(100, "Dumas", "Julien", 18, "Homme");
 
 
 
 --JEUX DE DONNEES PERSONNE
-INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES
-("DiCaprio", "Leonardo", "Homme", 49, "Acteur"),
-("Depp", "Johnny", "Homme", 60, "Acteur"),
-("Pitt", "Brad", "Homme", 60, "Acteur"),
-("Jolie", "Angelina", "Femme", 49, "Actrice"),
-("Kidman", "Nicole", "Femme", 56, "Actrice"),
-("Washington", "Denzel", "Homme", 69, "Acteur"),
-("Hanks", "Tom", "Homme", 67, "Acteur"),
-("Lawrence", "Jennifer", "Femme", 33, "Actrice"),
-("Streep", "Meryl", "Femme", 74, "Actrice"),
-("Johansson", "Scarlett", "Femme", 39, "Actrice"),
-("Spielberg", "Steven", "Homme", 77, "Réalisateur"),
-("Nolan", "Christopher", "Homme", 53, "Réalisateur"),
-("Scorsese", "Martin", "Homme", 81, "Réalisateur"),
-("Tarantino", "Quentin", "Homme", 61, "Réalisateur"),
-("Kubrick", "Stanley", "Homme", 70, "Réalisateur"),
-("Coppola", "Francis Ford", "Homme", 84, "Réalisateur"),
-("Bigelow", "Kathryn", "Femme", 72, "Réalisatrice"),
-("Villeneuve", "Denis", "Homme", 56, "Réalisateur"),
-("Burton", "Tim", "Homme", 65, "Réalisateur"),
-("Anderson", "Wes", "Homme", 54, "Réalisateur"),
-("Jackson", "Peter", "Homme", 62, "Réalisateur"),
-("Lucas", "George", "Homme", 80, "Producteur"),
-("Abrams", "J.J.", "Homme", 57, "Producteur"),
-("Feige", "Kevin", "Homme", 50, "Producteur"),
-("Cameron", "James", "Homme", 69, "Producteur"),
-("Kennedy", "Kathleen", "Femme", 70, "Productrice"),
-("Bruckheimer", "Jerry", "Homme", 80, "Producteur"),
-("Zanuck", "Richard", "Homme", 77, "Producteur"),
-("Broccoli", "Barbara", "Femme", 63, "Productrice"),
-("Blum", "Jason", "Homme", 54, "Producteur"),
-("Winslet", "Kate", "Femme", 48, "Actrice"),
-("Blanchett", "Cate", "Femme", 54, "Actrice"),
-("Davis", "Viola", "Femme", 58, "Actrice"),
-("Hemsworth", "Chris", "Homme", 40, "Acteur"),
-("Evans", "Chris", "Homme", 42, "Acteur"),
-("Downey Jr.", "Robert", "Homme", 58, "Acteur"),
-("Ruffalo", "Mark", "Homme", 56, "Acteur"),
-("Hathaway", "Anne", "Femme", 41, "Actrice"),
-("Clooney", "George", "Homme", 62, "Acteur"),
-("Bale", "Christian", "Homme", 49, "Acteur"),
-("Pacino", "Al", "Homme", 83, "Acteur"),
-("De Niro", "Robert", "Homme", 80, "Acteur"),
-("Theron", "Charlize", "Femme", 48, "Actrice"),
-("Portman", "Natalie", "Femme", 42, "Actrice"),
-("Waltz", "Christoph", "Homme", 67, "Acteur"),
-("Hardy", "Tom", "Homme", 46, "Acteur"),
-("Phoenix", "Joaquin", "Homme", 49, "Acteur"),
-("Gosling", "Ryan", "Homme", 43, "Acteur"),
-("Chastain", "Jessica", "Femme", 46, "Actrice"),
-("Anderson", "Paul Thomas", "Homme", 53, "Réalisateur"),
-("Hitchcock", "Alfred", "Homme", 80, "Réalisateur"),
-("Fincher", "David", "Homme", 61, "Réalisateur"),
-("Lee", "Ang", "Homme", 69, "Réalisateur"),
-("Del Toro", "Guillermo", "Homme", 59, "Réalisateur"),
-("Coen", "Ethan", "Homme", 66, "Réalisateur"),
-("Coen", "Joel", "Homme", 69, "Réalisateur"),
-("Eastwood", "Clint", "Homme", 93, "Réalisateur"),
-("Leigh", "Mike", "Homme", 80, "Réalisateur"),
-("Almodóvar", "Pedro", "Homme", 74, "Réalisateur"),
-("Ledger", "Heath", "Homme", 28, "Acteur"),
-("McKellen", "Ian", "Homme", 84, "Acteur"),
-("Blunt", "Emily", "Femme", 40, "Actrice"),
-("Thompson", "Emma", "Femme", 64, "Actrice"),
-("Hopkins", "Anthony", "Homme", 86, "Acteur"),
-("Mirren", "Helen", "Femme", 78, "Actrice"),
-("Smith", "Will", "Homme", 55, "Acteur"),
-("Craig", "Daniel", "Homme", 55, "Acteur"),
-("Larson", "Brie", "Femme", 34, "Actrice"),
-("Radcliffe", "Daniel", "Homme", 35, "Acteur"),
-("Stone", "Emma", "Femme", 35, "Actrice"),
-("Bay", "Michael", "Homme", 59, "Producteur"),
-("Marshall", "Frank", "Homme", 77, "Producteur"),
-("Kennedy", "Kathleen", "Femme", 70, "Productrice"),
-("Abrams", "J.J.", "Homme", 57, "Réalisateur"),
-("Bigelow", "Kathryn", "Femme", 72, "Réalisatrice"),
-("Cameron", "James", "Homme", 69, "Réalisateur"),
-("Lucas", "George", "Homme", 80, "Producteur"),
-("Ritchie", "Guy", "Homme", 55, "Réalisateur"),
-("Villeneuve", "Denis", "Homme", 56, "Réalisateur"),
-("Burton", "Tim", "Homme", 65, "Réalisateur"),
-("Anderson", "Wes", "Homme", 54, "Réalisateur"),
-("Spielberg", "Steven", "Homme", 77, "Réalisateur"),
-("Scott", "Ridley", "Homme", 86, "Réalisateur"),
-("Howard", "Ron", "Homme", 70, "Réalisateur"),
-("Fincher", "David", "Homme", 61, "Réalisateur"),
-("Coen", "Ethan", "Homme", 66, "Réalisateur"),
-("Coen", "Joel", "Homme", 69, "Réalisateur"),
-("Zanuck", "Richard", "Homme", 77, "Producteur"),
-("Broccoli", "Barbara", "Femme", 63, "Productrice"),
-("Bruckheimer", "Jerry", "Homme", 80, "Producteur"),
-("Whedon", "Joss", "Homme", 59, "Producteur"),
-("Blum", "Jason", "Homme", 54, "Producteur"),
-("Eastwood", "Clint", "Homme", 93, "Réalisateur"),
-("Almodóvar", "Pedro", "Homme", 74, "Réalisateur"),
-("Del Toro", "Guillermo", "Homme", 59, "Réalisateur"),
-("Hitchcock", "Alfred", "Homme", 80, "Réalisateur"),
-("Nolan", "Christopher", "Homme", 53, "Réalisateur"),
-("Tarantino", "Quentin", "Homme", 61, "Réalisateur"),
-("Reitman", "Ivan", "Homme", 75, "Producteur"),
-("Smith", "Kevin", "Homme", 53, "Réalisateur"),
-("Zemeckis", "Robert", "Homme", 72, "Réalisateur"),
-("Stone", "Oliver", "Homme", 77, "Réalisateur"),
-("Affleck", "Ben", "Homme", 51, "Réalisateur"),
-("Scorsese", "Martin", "Homme", 81, "Réalisateur"),
-("Dee", "Ruby", "Femme", 80, "Productrice"),
-("Peele", "Jordan", "Homme", 44, "Réalisateur"),
-("Waititi", "Taika", "Homme", 48, "Réalisateur"),
-("Gerwig", "Greta", "Femme", 40, "Réalisatrice"),
-("Jenkins", "Patty", "Femme", 52, "Réalisatrice"),
-("Chazelle", "Damien", "Homme", 39, "Réalisateur"),
-("Raimi", "Sam", "Homme", 64, "Réalisateur"),
-("Kosinski", "Joseph", "Homme", 49, "Réalisateur"),
-("Scott", "Tony", "Homme", 68, "Réalisateur"),
-("Bong", "Joon-ho", "Homme", 54, "Réalisateur"),
-("Kurosawa", "Akira", "Homme", 88, "Réalisateur"),
-("Miyazaki", "Hayao", "Homme", 82, "Réalisateur"),
-("Lasseter", "John", "Homme", 66, "Producteur"),
-("Pixar", "John", "Homme", 72, "Producteur"),
-("Anderson", "Paul W.S.", "Homme", 58, "Réalisateur"),
-("Verhoeven", "Paul", "Homme", 85, "Réalisateur"),
-("Tykwer", "Tom", "Homme", 58, "Réalisateur"),
-("Weir", "Peter", "Homme", 79, "Réalisateur"),
-("Boyle", "Danny", "Homme", 67, "Réalisateur"),
-("Gondry", "Michel", "Homme", 60, "Réalisateur"),
-("Forman", "Milos", "Homme", 86, "Réalisateur"),
-("Reed", "Peyton", "Homme", 59, "Réalisateur"),
-("McTiernan", "John", "Homme", 72, "Réalisateur"),
-("Coogler", "Ryan", "Homme", 37, "Réalisateur"),
-("Miller", "George", "Homme", 78, "Réalisateur"),
-("Anderson", "Roy", "Homme", 80, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("DiCaprio", "Leonardo", "Homme", 49, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Depp", "Johnny", "Homme", 60, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Pitt", "Brad", "Homme", 60, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Jolie", "Angelina", "Femme", 49, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kidman", "Nicole", "Femme", 56, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Washington", "Denzel", "Homme", 69, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hanks", "Tom", "Homme", 67, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Lawrence", "Jennifer", "Femme", 33, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Streep", "Meryl", "Femme", 74, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Johansson", "Scarlett", "Femme", 39, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Spielberg", "Steven", "Homme", 77, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Nolan", "Christopher", "Homme", 53, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Scorsese", "Martin", "Homme", 81, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Tarantino", "Quentin", "Homme", 61, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kubrick", "Stanley", "Homme", 70, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coppola", "Francis Ford", "Homme", 84, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bigelow", "Kathryn", "Femme", 72, "Réalisatrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Villeneuve", "Denis", "Homme", 56, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Burton", "Tim", "Homme", 65, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Anderson", "Wes", "Homme", 54, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Jackson", "Peter", "Homme", 62, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Lucas", "George", "Homme", 80, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Abrams", "J.J.", "Homme", 57, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Feige", "Kevin", "Homme", 50, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Cameron", "James", "Homme", 69, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kennedy", "Kathleen", "Femme", 70, "Productrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bruckheimer", "Jerry", "Homme", 80, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Zanuck", "Richard", "Homme", 77, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Broccoli", "Barbara", "Femme", 63, "Productrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Blum", "Jason", "Homme", 54, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Winslet", "Kate", "Femme", 48, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Blanchett", "Cate", "Femme", 54, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Davis", "Viola", "Femme", 58, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hemsworth", "Chris", "Homme", 40, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Evans", "Chris", "Homme", 42, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Downey Jr.", "Robert", "Homme", 58, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Ruffalo", "Mark", "Homme", 56, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hathaway", "Anne", "Femme", 41, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Clooney", "George", "Homme", 62, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bale", "Christian", "Homme", 49, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Pacino", "Al", "Homme", 83, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("De Niro", "Robert", "Homme", 80, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Theron", "Charlize", "Femme", 48, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Portman", "Natalie", "Femme", 42, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Waltz", "Christoph", "Homme", 67, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hardy", "Tom", "Homme", 46, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Phoenix", "Joaquin", "Homme", 49, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Gosling", "Ryan", "Homme", 43, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Chastain", "Jessica", "Femme", 46, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Anderson", "Paul Thomas", "Homme", 53, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hitchcock", "Alfred", "Homme", 80, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Fincher", "David", "Homme", 61, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Lee", "Ang", "Homme", 69, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Del Toro", "Guillermo", "Homme", 59, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coen", "Ethan", "Homme", 66, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coen", "Joel", "Homme", 69, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Eastwood", "Clint", "Homme", 93, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Leigh", "Mike", "Homme", 80, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Almodóvar", "Pedro", "Homme", 74, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Ledger", "Heath", "Homme", 28, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("McKellen", "Ian", "Homme", 84, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Blunt", "Emily", "Femme", 40, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Thompson", "Emma", "Femme", 64, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hopkins", "Anthony", "Homme", 86, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Mirren", "Helen", "Femme", 78, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Smith", "Will", "Homme", 55, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Craig", "Daniel", "Homme", 55, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Larson", "Brie", "Femme", 34, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Radcliffe", "Daniel", "Homme", 35, "Acteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Stone", "Emma", "Femme", 35, "Actrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bay", "Michael", "Homme", 59, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Marshall", "Frank", "Homme", 77, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kennedy", "Kathleen", "Femme", 70, "Productrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Abrams", "J.J.", "Homme", 57, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bigelow", "Kathryn", "Femme", 72, "Réalisatrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Cameron", "James", "Homme", 69, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Lucas", "George", "Homme", 80, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Ritchie", "Guy", "Homme", 55, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Villeneuve", "Denis", "Homme", 56, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Burton", "Tim", "Homme", 65, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Anderson", "Wes", "Homme", 54, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Spielberg", "Steven", "Homme", 77, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Scott", "Ridley", "Homme", 86, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Howard", "Ron", "Homme", 70, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Fincher", "David", "Homme", 61, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coen", "Ethan", "Homme", 66, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coen", "Joel", "Homme", 69, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Zanuck", "Richard", "Homme", 77, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Broccoli", "Barbara", "Femme", 63, "Productrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bruckheimer", "Jerry", "Homme", 80, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Whedon", "Joss", "Homme", 59, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Blum", "Jason", "Homme", 54, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Eastwood", "Clint", "Homme", 93, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Almodóvar", "Pedro", "Homme", 74, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Del Toro", "Guillermo", "Homme", 59, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Hitchcock", "Alfred", "Homme", 80, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Nolan", "Christopher", "Homme", 53, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Tarantino", "Quentin", "Homme", 61, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Reitman", "Ivan", "Homme", 75, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Smith", "Kevin", "Homme", 53, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Zemeckis", "Robert", "Homme", 72, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Stone", "Oliver", "Homme", 77, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Affleck", "Ben", "Homme", 51, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Scorsese", "Martin", "Homme", 81, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Dee", "Ruby", "Femme", 80, "Productrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Peele", "Jordan", "Homme", 44, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Waititi", "Taika", "Homme", 48, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Gerwig", "Greta", "Femme", 40, "Réalisatrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Jenkins", "Patty", "Femme", 52, "Réalisatrice");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Chazelle", "Damien", "Homme", 39, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Raimi", "Sam", "Homme", 64, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kosinski", "Joseph", "Homme", 49, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Scott", "Tony", "Homme", 68, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Bong", "Joon-ho", "Homme", 54, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Kurosawa", "Akira", "Homme", 88, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Miyazaki", "Hayao", "Homme", 82, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Lasseter", "John", "Homme", 66, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Pixar", "John", "Homme", 72, "Producteur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Anderson", "Paul W.S.", "Homme", 58, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Verhoeven", "Paul", "Homme", 85, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Tykwer", "Tom", "Homme", 58, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Weir", "Peter", "Homme", 79, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Boyle", "Danny", "Homme", 67, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Gondry", "Michel", "Homme", 60, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Forman", "Milos", "Homme", 86, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Reed", "Peyton", "Homme", 59, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("McTiernan", "John", "Homme", 72, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Coogler", "Ryan", "Homme", 37, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Miller", "George", "Homme", 78, "Réalisateur");
+INSERT INTO PERSONNE (nom, prenom, sexe, age, metier) VALUES("Anderson", "Roy", "Homme", 80, "Réalisateur");
 
 
 --JEUX DE DONNEES PLATEFORME
-INSERT INTO PLATEFORME (id_plateforme, nom) VALUES 
-(1, 'Netflix'),
-(2, 'Amazon Prime Video'),
-(3, 'Disney+'),
-(4, 'HBO Max'),
-(5, 'Hulu'),
-(6, 'Apple TV+'),
-(7, 'Paramount+'),
-(8, 'Peacock'),
-(9, 'Canal+'),
-(10, 'Canal+ Séries'),
-(11, 'OCS'),
-(12, 'Salto'),
-(13, 'France.tv Premium'),
-(14, 'MyTF1 Max'),
-(15, '6play Max'),
-(16, 'Crunchyroll'),
-(17, 'Rakuten TV'),
-(18, 'Starz'),
-(19, 'Discovery+'),
-(20, 'Sky Go'),
-(21, 'Now TV'),
-(22, 'Viaplay'),
-(23, 'YouTube Premium'),
-(24, 'Viki'),
-(25, 'Shudder'),
-(26, 'Mubi'),
-(27, 'Arte.tv Premium'),
-(28, 'BBC iPlayer'),
-(29, 'Sony LIV'),
-(30, 'Zee5');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (1, 'Netflix');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (2, 'Amazon Prime Video');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (3, 'Disney+');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (4, 'HBO Max');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (5, 'Hulu');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (6, 'Apple TV+');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (7, 'Paramount+');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (8, 'Peacock');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (9, 'Canal+');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (10, 'Canal+ Séries');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (11, 'OCS');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (12, 'Salto');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (13, 'France.tv Premium');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (14, 'MyTF1 Max');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (15, '6play Max');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (16, 'Crunchyroll');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (17, 'Rakuten TV');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (18, 'Starz');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (19, 'Discovery+');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (20, 'Sky Go');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (21, 'Now TV');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (22, 'Viaplay');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (23, 'YouTube Premium');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (24, 'Viki');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (25, 'Shudder');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (26, 'Mubi');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (27, 'Arte.tv Premium');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (28, 'BBC iPlayer');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (29, 'Sony LIV');
+INSERT INTO PLATEFORME (id_plateforme, nom) VALUES (30, 'Zee5');
+
+--JEUX DE DONNEES CRITIQUE
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(1 ,1, 76, 8, 'film très sympathique, production aux petits oignons');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(2, 2, 42, 0, 'nul. À vomir.' );
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(1, 15, 37, 8, 'Très bon film, je recommande vivement !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(2, 22, 5, 4, 'L’histoire manque de profondeur.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(3, 47, 18, 9, 'Excellent ! Un chef-d œuvre.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(4, 34, 62, 6, 'Un film agréable, mais sans grande surprise.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(5, 10, 23, 3, 'Décevant, je m attendais à mieux.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(6, 76, 45, 7, 'Un bon moment passé devant ce film.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(7, 55, 88, 10, 'Parfait ! Rien à redire.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(8, 11, 31, 5, 'Correct mais sans plus.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(9, 8, 42, 2, 'Très mauvais, je ne recommande pas.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(10, 64, 14, 9, 'Superbe réalisation et excellent casting.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(11, 17, 33, 0, 'Un désastre absolu.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(12, 23, 50, 7, 'Un film bien fait avec une bonne histoire.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(13, 91, 78, 6, 'Bon, mais quelques longueurs.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(14, 19, 60, 8, 'Un très bon moment, à voir absolument !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(15, 49, 11, 4, 'Des lacunes dans le scénario.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(16, 29, 95, 10, 'Une expérience cinématographique inoubliable.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(17, 77, 38, 1, 'Pire film que j’ai vu cette année.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(18, 36, 21, 5, 'Pas mal, mais il manque quelque chose.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(19, 88, 84, 9, 'Un régal pour les yeux et les oreilles.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(20, 7, 72, 3, 'Honnêtement, une vraie perte de temps.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(21, 14, 64, 8, 'Une belle surprise, très captivant.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(22, 54, 92, 6, 'Pas mal, mais quelques défaut');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(19, 88, 84, 9, 'Un régal pour les yeux et les oreilles.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(20, 7, 72, 3, 'Honnêtement, une vraie perte de temps.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(21, 14, 64, 8, 'Une belle surprise, très captivant.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(22, 54, 92, 6, 'Pas mal, mais quelques défauts évidents.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(23, 31, 48, 0, 'Je regrette vraiment de l’avoir vu.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(24, 20, 17, 7, 'Un bon film avec des moments marquants.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(25, 2, 80, 10, 'Tout simplement extraordinaire !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(26, 3, 66, 9, 'Incroyable, je le reverrai sans hésiter.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(27, 18, 24, 2, 'Difficile à regarder, très mauvais.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(28, 46, 39, 4, 'Rien de mémorable, un film banal.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(29, 90, 77, 6, 'Un film correct mais loin d’être parfait.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(30, 67, 8, 5, 'Je suis resté sur ma faim.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(31, 85, 41, 7, 'Pas exceptionnel, mais agréable à regarder.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(32, 50, 34, 8, 'J’ai adoré ! Une belle réussite.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(33, 26, 52, 9, 'Superbe histoire, très bien joué.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(34, 12, 61, 3, 'Assez mauvais, difficile de rester concentré.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(35, 95, 4, 2, 'Un vrai désastre, je déconseille.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(36, 44, 73, 8, 'Un film plein d’émotions, très réussi.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(37, 38, 10, 7, 'Bonne ambiance, j’ai apprécié.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(38, 96, 91, 10, 'Un bijou du cinéma moderne !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(39, 74, 25, 6, 'Correct mais manque d’originalité.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(40, 28, 85, 5, 'Pas mal, mais il manque une étincelle.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(41, 83, 7, 9, 'Une belle réalisation, bravo !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(42, 68, 40, 4, 'Manque de rythme et de profondeur.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(43, 51, 93, 1, 'Vraiment très mauvais, à éviter.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(44, 32, 13, 8, 'Un excellent moment, très captivant.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(45, 62, 53, 3, 'Décevant, beaucoup de promesses non tenues.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(46, 99, 81, 10, 'Un film à voir absolument, magnifique.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(47, 45, 58, 9, 'Époustouflant, une grande réussite.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(48, 70, 30, 7, 'Un bon film avec des moments intéressants.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(49, 84, 69, 5, 'Correct mais sans grande saveur.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(50, 59, 36, 0, 'Un désastre total, rien ne va.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(51, 5, 44, 4, 'Quelques moments intéressants, mais très moyen.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(52, 9, 19, 8, 'Une belle surprise, très bien fait.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(53, 22, 15, 6, 'Assez bon, mais des défauts évidents.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(54, 37, 56, 7, 'Un film plaisant à regarder.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(55, 87, 63, 9, 'Une grande réussite, bravo aux réalisateurs.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(56, 48, 27, 2, 'Un vrai ennui, je déconseille fortement.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(57, 66, 49, 1, 'Pire expérience cinématographique de ma vie.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(58, 100, 9, 10, 'Un chef-d’œuvre absolu !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(59, 73, 35, 7, 'Un film bien fait avec une belle histoire.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(60, 21, 57, 8, 'Très captivant, je recommande !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(61, 6, 22, 5, 'Pas mal mais peut mieux faire.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(62, 53, 68, 9, 'Superbe, vraiment impressionnant.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(63, 13, 20, 4, 'Décevant malgré de bonnes idées.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(64, 24, 79, 6, 'Correct mais quelques longueurs.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(65, 92, 86, 7, 'Un bon moment de cinéma.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(66, 72, 26, 10, 'Un film grandiose, à ne pas manquer.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(67, 35, 47, 3, 'Décevant et mal réalisé.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(68, 40, 96, 5, 'Pas mal, mais un peu prévisible.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(69, 81, 43, 8, 'Une belle réalisation avec des moments forts.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(70, 61, 59, 6, 'Un film assez correct mais oubliable.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(71, 27, 12, 9, 'Une superbe réussite, bravo !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(72, 42, 29, 2, 'Très mauvais, je ne recommande pas du tout.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(73, 57, 76, 4, 'Des efforts, mais ça reste faible.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(74, 30, 94, 7, 'Un film agréable, bien rythmé.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(75, 89, 46, 8, 'Une très belle surprise, à voir !');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(76, 16, 89, 0, 'Absolument catastrophique.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(77, 63, 55, 10, 'Un chef-d’œuvre, tout simplement parfait.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(78, 41, 74, 9, 'Magnifique, je recommande vivement.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(79, 25, 18, 7, 'Un film bien construit, agréable à voir.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(80, 97, 65, 6, 'Pas mal, mais rien d’extraordinaire.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(81, 39, 32, 8, 'Une excellente surprise, très captivant.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(82, 56, 82, 5, 'Un peu plat, mais pas désagréable.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(83, 4, 98, 3, 'Décevant, peu d’intérêt.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(84, 86, 71, 9, 'Très bien réalisé, une belle réussite.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(85, 43, 2, 2, 'Difficilement regardable.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(86, 58, 3, 10, 'Parfait en tout point, un must-see.');
+INSERT INTO CRITIQUE (id_critique, id_film, id_spectateur, note, commentaire) VALUES(87, 93, 28, 7, 'Un bon film, je ne suis pas déçue');
+
+
+
+
+--JEUX DE DONNEES CLASSER
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 1);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (2, 2);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 3);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 4);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 5);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 6);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (4, 7);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 8);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (2, 9);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 10);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 11);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 12);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 13);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 14);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (15, 15);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (16, 16);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (17, 17);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (18, 18);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 19);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 20);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 23);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 24);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 25);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (26, 26);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (27, 27);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (28, 28);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (29, 29);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 30);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 31);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 34);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 35);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 36);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 37);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (18, 38);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 39);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 40);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 41);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (18, 43);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (7, 44);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (4, 45);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (4, 46);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (3, 47);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (8, 48);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (9, 49);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (7, 50);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 51);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (8, 52);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 53);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 54);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 55);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 56);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (7, 57);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 58);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 59);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 60);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 61);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 62);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (10, 63);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (6, 64);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (1, 65);
+INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 66);
+
+
+
+
+--JEUX DE DONNEES PARENT
+INSERT INTO PARENT(id_film1, id_film2) VALUES(11,12);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(12,13);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(13,14);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(19,20);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(23,24);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(24,25);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(34,35);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(39,40);
+INSERT INTO PARENT(id_film1, id_film2) VALUES(40,41);
+
+
+--JEUX DE DONNEES DISPONIBLE
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 1, 'FR', 'EN');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 1, 'EN', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 1, 'ES', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 2, 'FR', 'DE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 2, 'EN', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(4, 2, 'ES', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 3, 'FR', 'JA');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 3, 'EN', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(5, 3, 'ES', 'AR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 4, 'FR', 'PT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 4, 'EN', 'HI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(6, 4, 'RU', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 5, 'FR', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 5, 'EN', 'SV');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 5, 'ES', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 6, 'FR', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 6, 'EN', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 6, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 7, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 7, 'EN', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 7, 'ES', 'DA');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 8, 'FR', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 8, 'EN', 'JA');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 8, 'ES', 'NL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 9, 'FR', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 9, 'EN', 'AR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 9, 'ES', 'HI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 10, 'FR', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 10, 'EN', 'SW');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 10, 'ES', 'ID');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 11, 'FR', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 11, 'EN', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 11, 'ES', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 12, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 12, 'EN', 'SV');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 12, 'ES', 'PT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 13, 'FR', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 13, 'EN', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 13, 'ES', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 14, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 14, 'EN', 'SW');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 14, 'ES', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 15, 'FR', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 15, 'EN', 'HI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 15, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 16, 'FR', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 16, 'EN', 'PT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 16, 'ES', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 17, 'FR', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 17, 'EN', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 17, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 18, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 18, 'EN', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 18, 'ES', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 19, 'FR', 'ID');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 19, 'EN', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 19, 'ES', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 20, 'FR', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 20, 'EN', 'SV');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 20, 'ES', 'PT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 21, 'FR', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 21, 'EN', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 21, 'ES', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 22, 'FR', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 22, 'EN', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 22, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 23, 'FR', 'DE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 23, 'EN', 'ID');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 23, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 24, 'FR', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 24, 'EN', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 24, 'ES', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 25, 'FR', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 25, 'EN', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 25, 'ES', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 26, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 26, 'EN', 'PT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 26, 'ES', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 27, 'FR', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 27, 'EN', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 27, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 28, 'FR', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 28, 'EN', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 28, 'ES', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 29, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 29, 'EN', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 29, 'ES', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 30, 'FR', 'ID');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 30, 'EN', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 30, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 31, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 31, 'EN', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 31, 'ES', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 32, 'FR', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 32, 'EN', 'ID');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 32, 'ES', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 33, 'FR', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 33, 'EN', 'FR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 33, 'ES', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 34, 'FR', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 34, 'EN', 'PA');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 34, 'ES', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 35, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 35, 'EN', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 35, 'ES', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 36, 'FR', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 36, 'EN', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 36, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 37, 'FR', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 37, 'EN', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 37, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 38, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 38, 'EN', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 38, 'ES', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 39, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 39, 'EN', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 39, 'ES', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 40, 'FR', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 40, 'EN', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 40, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 41, 'FR', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 41, 'EN', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 41, 'ES', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 42, 'FR', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 42, 'EN', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 42, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 43, 'FR', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 43, 'EN', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 43, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 44, 'FR', 'SV');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 44, 'EN', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 44, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 45, 'EN', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 45, 'ES', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 46, 'FR', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 46, 'EN', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 46, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 47, 'FR', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 47, 'EN', 'ES');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 47, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 48, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 48, 'EN', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 48, 'ES', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 49, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 50, 'FR', 'BE');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 50, 'EN', 'IT');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 51, 'ES', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 52, 'FR', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 53, 'EN', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 54, 'ES', 'TR');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 55, 'FR', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 56, 'EN', 'NO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 57, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1,58,'FR','EN');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 59, 'FR', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 59, 'EN', 'VI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 60, 'ES', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 61, 'FR', 'KO');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 62, 'EN', 'ZH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 62, 'ES', 'PL');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 63, 'FR', 'MS');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 63, 'EN', 'TH');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 64, 'ES', 'FI');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(1, 65, 'FR', 'SV');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(2, 66, 'EN', 'RU');
+INSERT INTO DISPONIBLE(id_langue, id_film, langue_audio, langue_sous_titre) VALUES(3, 66, 'ES', 'PL');
+
+
+
+--JEUX DE DONNEES DIFFUSE
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(1, 1, '2019-03-22', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(2, 2, '2022-01-11', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(3, 3, '2021-09-09', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(4, 1, '2019-03-22', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(5, 2, '2022-01-11', 150);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(6, 3, '2021-09-09', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(7, 4, '2021-01-05', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(8, 16, '2019-04-13', 348);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(9, 1, '2019-03-22', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(10, 2, '2022-01-11', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(11, 3, '2002-06-26', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(12, 3, '2006-03-29', 309);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(13, 3, '2009-07-10', 720);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(14, 3, '2012-06-05', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(19, 3, '2019-10-01', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(20, 3, '2024-11-01', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(21, 3, '2020-12-04', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(22, 14, '2001-12-05', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(23, 2, '2001-12-05', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(24, 2, '2002-12-04', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(25, 2, '2004-06-02', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(26, 3, '1994-11-24', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(27, 3, '1989-11-17', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(28, 3, '1992-11-27', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(29, 3, '1994-06-20', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(30, 3, '1994-11-24', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(31, 3, '1989-11-17', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(32, 3, '1994-11-24', 730);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(33, 3, '1994-06-20', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(34, 3, '1992-11-27', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(35, 3, '1994-06-20', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(36, 3, '2021-11-24', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(37, 17, '1994-06-20', 145);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(38, 18, '2021-11-24', 150);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(39, 4, '1993-06-09', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(40, 4, '1997-05-23', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(41, 4, '2001-07-18', 190);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(43, 9, '2020-12-25', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(44, 25, '2017-09-25', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(45, 5, '2018-11-15', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(46, 2, '2023-10-12', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(47, 14, '2023-02-08', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(48, 4, '2024-03-01', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(49, 6, '2024-07-18', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(50, 4, '2024-10-30', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(51, 1, '2024-03-15', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(52, 8, '2024-04-05', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(53, 26, '2024-05-20', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(54, 27, '2024-06-10', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(55, 25, '2024-07-01', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(56, 26, '2024-08-17', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(57, 2, '2024-09-25', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(58, 4, '2024-10-13', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(59, 6, '2024-11-05', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(60, 3, '2024-12-10', 90);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(61, 19, '2025-01-20', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(62, 22, '2025-02-15', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(63, 1, '2025-03-01', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(64, 25, '2025-04-05', 180);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(65, 1, '2025-05-10', 365);
+INSERT INTO DIFFUSE(id_film, id_plateforme, date_dispo, duree_dispo) VALUES(66, 2, '2025-06-18', 90);
+
+
+
+--JEUX DE DONNEES VISIONNE
+INSERT INTO VISIONNE(id_visionnage, id_film, id_plateforme, date_visionnage, temps_visionnage, temps_pause, langue_audio, langue_sous_titre) VALUES;
+
+
+--JEUX DE DONNEES TRAVAILLE
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(1, 'DiCaprio', 'Leonardo', 12, '2023-01-01', '2023-12-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(2, 'Depp', 'Johnny', 24, '2023-03-15', '2024-03-15', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(3, 'Pitt', 'Brad', 30, '2023-06-10', '2024-06-10', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(4, 'Jolie', 'Angelina', 18, '2023-02-01', '2024-01-31', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(5, 'Kidman', 'Nicole', 7, '2023-04-01', '2024-03-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(6, 'Washington', 'Denzel', 3, '2023-01-15', '2024-01-14', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(7, 'Hanks', 'Tom', 20, '2023-02-01', '2024-01-31', 2300);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(8, 'Lawrence', 'Jennifer', 14, '2023-03-20', '2024-03-19', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(9, 'Streep', 'Meryl', 11, '2023-01-01', '2023-12-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(10, 'Johansson', 'Scarlett', 6, '2023-06-01', '2024-05-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(11, 'Spielberg', 'Steven', 8, '2023-01-01', '2023-12-31', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(12, 'Nolan', 'Christopher', 17, '2023-02-10', '2024-02-09', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(13, 'Scorsese', 'Martin', 22, '2023-05-01', '2024-04-30', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(14, 'Tarantino', 'Quentin', 9, '2023-04-15', '2024-04-14', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(15, 'Kubrick', 'Stanley', 4, '2023-03-01', '2024-02-28', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(16, 'Coppola', 'Francis Ford', 10, '2023-01-20', '2024-01-19', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(17, 'Bigelow', 'Kathryn', 15, '2023-06-01', '2024-05-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(18, 'Villeneuve', 'Denis', 5, '2023-02-01', '2024-01-31', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(19, 'Burton', 'Tim', 25, '2023-07-01', '2024-06-30', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(20, 'Anderson', 'Wes', 23, '2023-05-15', '2024-05-14', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(21, 'Jackson', 'Peter', 2, '2023-01-10', '2024-01-09', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(22, 'Lucas', 'George', 19, '2023-03-01', '2024-02-28', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(23, 'Abrams', 'J.J.', 13, '2023-06-01', '2024-05-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(24, 'Feige', 'Kevin', 1, '2023-04-15', '2024-04-14', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(25, 'Cameron', 'James', 21, '2023-02-01', '2024-01-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(26, 'Kennedy', 'Kathleen', 16, '2023-05-01', '2024-04-30', 1800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(27, 'Bruckheimer', 'Jerry', 27, '2023-06-10', '2024-06-09', 1900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(28, 'Zanuck', 'Richard', 28, '2023-01-20', '2024-01-19', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(29, 'Broccoli', 'Barbara', 29, '2023-07-01', '2024-06-30', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(30, 'Blum', 'Jason', 30, '2023-02-15', '2024-02-14', 2300);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(31, 'Winslet', 'Kate', 31, '2023-03-01', '2024-02-28', 2100);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(32, 'Blanchett', 'Cate', 32, '2023-01-01', '2023-12-31', 2200);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(33, 'Davis', 'Viola', 33, '2023-04-10', '2024-04-09', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(34, 'Hemsworth', 'Chris', 34, '2023-02-01', '2024-01-31', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(35, 'Evans', 'Chris', 35, '2023-03-15', '2024-03-14', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(36, 'Downey Jr.', 'Robert', 36, '2023-06-01', '2024-05-31', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(37, 'Ruffalo', 'Mark', 37, '2023-05-10', '2024-05-09', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(38, 'Hathaway', 'Anne', 38, '2023-04-01', '2024-03-31', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(39, 'Clooney', 'George', 39, '2023-01-01', '2023-12-31', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(40, 'Bale', 'Christian', 40, '2023-07-10', '2024-07-09', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(41, 'Pacino', 'Al', 41, '2023-01-15', '2024-01-14', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(42, 'De Niro', 'Robert', 42, '2023-02-01', '2024-01-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(43, 'Theron', 'Charlize', 43, '2023-06-10', '2024-06-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(44, 'Portman', 'Natalie', 44, '2023-04-01', '2024-03-31', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(45, 'Waltz', 'Christoph', 45, '2023-05-15', '2024-05-14', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(46, 'Hardy', 'Tom', 46, '2023-03-01', '2024-02-28', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(47, 'Phoenix', 'Joaquin', 47, '2023-06-01', '2024-05-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(48, 'Gosling', 'Ryan', 48, '2023-02-10', '2024-02-09', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(49, 'Chastain', 'Jessica', 49, '2023-07-01', '2024-06-30', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(50, 'Anderson', 'Paul Thomas', 50, '2023-04-15', '2024-04-14', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(51, 'Hitchcock', 'Alfred', 51, '2023-01-01', '2023-12-31', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(52, 'Fincher', 'David', 52, '2023-01-10', '2024-01-09', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(53, 'Lee', 'Ang', 53, '2023-02-01', '2024-01-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(54, 'Del Toro', 'Guillermo', 54, '2023-03-15', '2024-03-14', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(55, 'Coen', 'Ethan', 55, '2023-04-01', '2024-03-31', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(56, 'Coen', 'Joel', 56, '2023-06-01', '2024-05-31', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(57, 'Eastwood', 'Clint', 57, '2023-05-10', '2024-05-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(58, 'Leigh', 'Mike', 58, '2023-03-01', '2024-02-28', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(59, 'Almodóvar', 'Pedro', 59, '2023-07-01', '2024-06-30', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(60, 'Ledger', 'Heath', 60, '2023-04-10', '2024-04-09', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(61, 'McKellen', 'Ian', 61, '2023-01-15', '2024-01-14', 2200);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(62, 'Blunt', 'Emily', 62, '2023-02-01', '2024-01-31', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(63, 'Thompson', 'Emma', 63, '2023-06-10', '2024-06-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(64, 'Hopkins', 'Anthony', 64, '2023-04-01', '2024-03-31', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(65, 'Mirren', 'Helen', 65, '2023-03-01', '2024-02-28', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(66, 'Smith', 'Will', 66, '2023-04-15', '2024-04-14', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(67, 'Craig', 'Daniel', 67, '2023-01-01', '2023-12-31', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(68, 'Larson', 'Brie', 68, '2023-01-10', '2024-01-09', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(69, 'Radcliffe', 'Daniel', 69, '2023-05-01', '2024-04-30', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(70, 'Stone', 'Emma', 70, '2023-06-01', '2024-05-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(71, 'Bay', 'Michael', 71, '2023-02-10', '2024-02-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(72, 'Marshall', 'Frank', 72, '2023-07-01', '2024-06-30', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(73, 'Gerwig', 'Greta', 73, '2023-04-01', '2024-03-31', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(74, 'Reitman', 'Ivan', 74, '2023-03-15', '2024-03-14', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(75, 'Peele', 'Jordan', 12, '2023-03-01', '2024-02-28', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(76, 'Waititi', 'Taika', 13, '2023-06-01', '2024-05-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(77, 'Jenkins', 'Patty', 12, '2023-04-10', '2024-04-09', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(78, 'Chazelle', 'Damien', 14, '2023-02-01', '2024-01-31', 2300);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(79, 'Raimi', 'Sam', 15, '2023-01-01', '2023-12-31', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(80, 'Kosinski', 'Joseph', 12, '2023-05-15', '2024-05-14', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(81, 'Scott', 'Tony', 16, '2023-02-01', '2024-01-31', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(82, 'Bong', 'Joon-ho', 17, '2023-06-10', '2024-06-09', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(83, 'Kurosawa', 'Akira', 13, '2023-04-01', '2024-03-31', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(84, 'Miyazaki', 'Hayao', 14, '2023-01-01', '2023-12-31', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(85, 'Lasseter', 'John', 16, '2023-01-10', '2024-01-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(86, 'Pixar', 'John', 12, '2023-07-01', '2024-06-30', 2800);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(87, 'Anderson', 'Brad', 18, '2023-03-15', '2024-03-14', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(88, 'Alfredson', 'Tomas', 14, '2023-03-01', '2024-02-28', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(89, 'Spielberg', 'Anne', 13, '2023-06-01', '2024-05-31', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(90, 'Bayona', 'J.A.', 16, '2023-04-01', '2024-03-31', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(91, 'Schumacher', 'Joel', 15, '2023-05-10', '2024-05-09', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(92, 'Whedon', 'Joss', 12, '2023-02-01', '2024-01-31', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(93, 'Russo', 'Anthony', 18, '2023-04-15', '2024-04-14', 2600);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(94, 'Russo', 'Joe', 17, '2023-01-01', '2023-12-31', 2400);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(95, 'Vaughn', 'Matthew', 15, '2023-01-10', '2024-01-09', 3000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(96, 'Jonze', 'Spike', 12, '2023-07-01', '2024-06-30', 2700);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(97, 'Proyas', 'Alex', 13, '2023-04-01', '2024-03-31', 2500);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(98, 'Burton', 'Richard', 14, '2023-03-15', '2024-03-14', 2900);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(99, 'Gilliam', 'Terry', 16, '2023-03-01', '2024-02-28', 2000);
+INSERT INTO TRAVAILLE(id_travaille, nom, prenom, id_film, date_contrat_debut, date_contrat_fin, salaire) VALUES(100, 'Andrews', 'Julie', 18, '2023-06-01', '2024-05-31', 2600);
+
+
+--JEUX DE DONNEES FILM EPISODE
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(1, NULL, 'Film', 'La derniere croisade ', NULL, NULL, 120, '2019-03-22', '-16', NUll);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(2, NULL, 'Film', 'Opération phénix', NULL, NULL, 95, '2022-01-11', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(3, NULL, 'Film', 'Les voyageurs du neant', NULL, NULL, 110, '2021-09-09', '-16', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(7, NULL, 'Film', 'les larmes dans la neige', NULL, NULL, 130, '2021-01-05', 'NULL', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(8, NULL, 'Film', 'Dans l_obscurite' , NULL, NULL, 100, '2019-04-13', '-18', 'Histoire vraie ');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(11, NULL, 'Film', 'L_age de glace', NULL, NULL, 97, '2002-06-26', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(12, NULL, 'Film', 'L_age de glace 2', NULL, NULL, 95, '2006-03-29', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(13, NULL, 'Film', 'L_age de glace 3', NULL, NULL, 96, '2009-07-10', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(14, NULL, 'Film', 'L_age de glace 4', NULL, NULL, 90, '2012-06-05', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(19, NULL, 'Film', 'Vaina 1', NULL, NULL, 140, '2019-10-01', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(20, NULL, 'Film', 'Vaiana 2', NULL, NULL, 110, '2024-11-01', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(23, NULL, 'Film', 'Harry Potter à l_ecole des sorciers', NULL, NULL, 140, '2001-12-05', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(24, NULL, 'Film', 'Harry Potter et la chambre des secrets', NULL, NULL, 150, '2002-12-04', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(25, NULL, 'Film', 'Harry Potter et le prisonnier d_azkaban', NULL, NULL, 146, '2004-06-02', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(30, NULL, 'Film', 'Le roi lion', NULL, NULL, 90, '1994-11-24', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(31, NULL, 'Film', 'La petite sirène', NULL, NULL, 90, '1989-11-17', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(34, NULL, 'Film', 'Aladdin 1', NULL, NULL, 95, '1992-11-27', 'Tous public', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(35, NULL, 'Film', 'Aladdin 2', NULL, NULL, 110, '1994-06-20', 'Tous public', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(36, NULL, 'Film', 'Encanto', NULL, NULL, 120, '2021-11-24', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(39, NULL, 'Film', 'Jurassic park', NULL, NULL, 130, '1993-06-09', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(40, NULL, 'Film', 'Jurassic Park 2', NULL, NULL, 110, '1997-05-23', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(41, NULL, 'Film', 'Jurassic Park 3', NULL, NULL, 120, '2001-07-18', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(43, NULL, 'Film', 'Le monde merveilleux de luna', NULL, NULL, 95, '2020-12-25', 'Tous public', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(44, NULL, 'Film', 'Le rituel interdit', NULL, NULL, 110, '2017-09-25', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(45, NULL, 'Film', 'Loin de l_horizon', NULL, NULL, 98, '2018-11-15', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(46, NULL, 'Film', 'Le poids des mensonges', NULL, NULL, 100, '2023-10-12', NULL, NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(47, NULL, 'Film', 'Charlie et la chocolaterie', NULL, NULL, 90, '2023-02-08', 'Tous public', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(48, NULL, 'Film', 'Shadow on the storm', NULL, NULL, 105, '2024-03-01', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(49, NULL, 'Film', 'Eternal love', NULL, NULL, 115, '2024-07-18', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(50, NULL, 'Film', 'The haunted Mansion ', NULL, NULL, 125, '2024-10-30', '-18', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(51, NULL, 'Film', 'The Last Horizon', NULL, NULL, 120, '2024-03-15', '-18', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(52, NULL, 'Film', 'Midnight Escape', NULL, NULL, 95, '2024-04-05', '-16', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(53, NULL, 'Film', 'Silent Shadows', NULL, NULL, 130, '2024-05-20', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(54, NULL, 'Film', 'Lost in Time', NULL, NULL, 110, '2024-06-10', '-7', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(55, NULL, 'Film', 'Whispers of the Deep', NULL, NULL, 135, '2024-07-01', '-16', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(56, NULL, 'Film', 'Eternal Night', NULL, NULL, 125, '2024-08-17', '-18', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(57, NULL, 'Film', 'Chasing the Storm', NULL, NULL, 115, '2024-09-25', '-12', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(58, NULL, 'Film', 'The Forgotten City', NULL, NULL, 140, '2024-10-13', '-16', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(59, NULL, 'Film', 'Beyond the Shadows', NULL, NULL, 105, '2024-11-05', '-7', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(60, NULL, 'Film', 'The Silent Witness', NULL, NULL, 98, '2024-12-10', '-18', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(61, NULL, 'Film', 'Echoes of War', NULL, NULL, 122, '2025-01-20', '-16', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(62, NULL, 'Film', 'The Forbidden Path', NULL, NULL, 128, '2025-02-15', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(63, NULL, 'Film', 'Tales of the Sea', NULL, NULL, 90, '2025-03-01', '-7', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(64, NULL, 'Film', 'The Dark Escape', NULL, NULL, 118, '2025-04-05', '-18', 'Fait divers');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(65, NULL, 'Film', 'Nightfall Rising', NULL, NULL, 140, '2025-05-10', '-12', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(66, NULL, 'Film', 'Into the Unknown', NULL, NULL, 100, '2025-06-18', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'N et B, un pas en avant 2 pas en arriere', 1, 2, 47, '2008-01-27', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'S et B la guerre de nerfs', 1, 3, 48, '2008-02-10', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 4, 'Serie', 'Winter Is Coming', 1, 1, 62, '2011-04-17', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 4, 'Serie', 'The Kingsroad', 1, 2, 56, '2011-04-24', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 4, 'Serie', 'Lord Snow', 1, 3, 58, '2011-05-01', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Days Gone Bye', 1, 1, 67, '2010-10-31', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Guts', 1, 2, 45, '2010-11-07', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Tell It to the Frogs', 1, 3, 48, '2010-11-14', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'The One Where Monica Gets a Roommate', 1, 1, 22, '1994-09-22', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'The One with the Sonogram at the End', 1, 2, 22, '1994-09-29', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'The One with the Thumb', 1, 3, 22, '1994-10-06', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 16, 'Serie', 'Simpsons Roasting on an Open Fire', 1, 1, 23, '1989-12-17', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 16, 'Serie', 'Bart the Genius', 1, 2, 23, '1990-01-14', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 16, 'Serie', 'Homers Odyssey', 1, 3, 23, '1990-01-21', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Chapter One: The Vanishing of Will Byers', 1, 1, 47, '2016-07-15', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Chapter Two: The Weirdo on Maple Street', 1, 2, 55, '2016-07-15', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Chapter Three: Holly, Jolly', 1, 3, 51, '2016-07-15', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 25, 'Serie', 'The National Anthem', 1, 1, 44, '2011-12-04', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 25, 'Serie', 'Fifteen Million Merits', 1, 2, 62, '2011-12-11', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 25, 'Serie', 'The Entire History of You', 1, 3, 49, '2011-12-18', '-18', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'Welcome to the Hellmouth', 1, 1, 42, '1997-03-10', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'The Harvest', 1, 2, 42, '1997-03-10', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'Witch', 1, 3, 44, '1997-03-17', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'Secrets and Lies', 1, 1, 46, '2007-09-24', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'Identity', 1, 2, 44, '2007-10-01', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 6, 'Serie', 'Flushed', 1, 3, 43, '2007-10-08', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 8, 'Serie', 'The Mandalorian', 1, 1, 40, '2019-11-12', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 8, 'Serie', 'The Child', 1, 2, 32, '2019-11-15', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 8, 'Serie', 'The Sin', 1, 3, 36, '2019-11-22', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 7, 'Serie', 'Winter', 1, 1, 45, '2016-11-25', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 7, 'Serie', 'Spring', 1, 2, 52, '2016-11-25', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 7, 'Serie', 'Summer', 1, 3, 55, '2016-11-25', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 9, 'Serie', 'City of Angels', 1, 1, 52, '1999-10-05', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 9, 'Serie', 'The Harvest', 1, 2, 46, '1999-10-12', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 9, 'Serie', 'Queen Bee', 1, 3, 47, '1999-10-19', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 10, 'Serie', 'The Trial of the Chicago 7', 1, 1, 130, '2020-09-25', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 10, 'Serie', 'The Great Escape', 1, 2, 118, '1963-06-20', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 27, 'Serie', 'Descenso', 1, 1, 59, '2015-08-28', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 26, 'Serie', 'Narcos: Mexico', 1, 1, 58, '2018-11-16', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 15, 'Serie', 'A bout', 6, 3, 45, '2005-03-27', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 28, 'Serie', 'Better Call Saul', 1, 1, 47, '2015-02-08', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 14, 'Serie', 'Family', 2, 5, 22, '2007-09-24', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 18, 'Serie', 'Back', 2, 1, 60, '2022-08-21', '-18', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 27, 'Serie', 'The Boys', 1, 1, 60, '2019-07-26', '-18', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 19, 'Serie', 'Money Heist', 1, 1, 70, '2017-05-02', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 25, 'Serie', 'La chasse', 2, 2, 42, '2011-12-04', '-18', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Infectes', 4, 2, 43, '2010-10-31', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 3, 'Serie', 'Isolement', 4, 3, 22, '2005-03-24', '-16', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 13, 'Serie', 'Episode 1', 3, 1, 55, '2013-09-12', '-16', 'Histoire vraie');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 13, 'Serie', 'Episode 2', 3, 2, 23, '2005-09-19', '-12', NULL);
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 9, 'Serie', 'Le grand jeu', 1, 3, 90, '2010-07-25', '-16', 'Adaptation cinématographique');
+INSERT INTO FILMEPISODE(id_film, id_serie, type, titre, num_saison, num_episode, durée, date_sortie, pictogramme, origine) VALUES(NULL, 9, 'Serie', 'Le cercueil vide', 4, 1, 86, '1989-12-17', '-12', NULL);
+
+
+
+-- JEUX DE DONNEES SERIE
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(1, 'Gossip Girl');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(2, 'Breaking Bad');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(3, 'Stranger Things');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(4, 'Game of Thrones');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(5, 'The Office');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(6, 'Friends');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(7, 'The Crown');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(8, 'The Mandalorian');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(9, 'Sherlock');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(10, 'The Walking Dead');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(11, 'How I Met Your Mother');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(12, 'The Witcher');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(13, 'Peaky Blinders');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(14, 'Big Bang Theory');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(15, 'Grey’s Anatomy');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(16, 'The Simpsons');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(17, 'Brooklyn Nine-Nine');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(18, 'House of the Dragon');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(19, 'Money Heist');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(20, 'Lucifer');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(21, 'Euphoria');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(22, 'Westworld');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(23, 'Succession');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(24, 'Vikings');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(25, 'Black Mirror');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(26, 'Ozark');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(27, 'Narcos');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(28, 'Better Call Saul');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(29, 'Dark');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(30, 'The Boys');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(31, 'True Detective');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(32, 'Dexter');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(33, 'Fargo');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(34, 'Mad Men');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(35, 'Lost');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(36, 'Arrow');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(37, 'The Flash');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(38, 'Supernatural');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(39, 'Prison Break');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(40, 'Suits');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(41, 'Chilling Adventures of Sabrina');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(42, '13 Reasons Why');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(43, 'Riverdale');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(44, 'Shadow and Bone');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(45, 'The Umbrella Academy');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(46, 'The Vampire Diaries');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(47, 'Pretty Little Liars');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(48, 'Teen Wolf');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(49, 'Penny Dreadful');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(50, 'Once Upon a Time');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(51, 'Legacies');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(52, 'The 100');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(53, 'Buffy the Vampire Slayer');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(54, 'Angel');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(55, 'Daredevil');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(56, 'Jessica Jones');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(57, 'Iron Fist');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(58, 'Luke Cage');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(59, 'The Defenders');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(60, 'Hawkeye');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(61, 'Moon Knight');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(62, 'WandaVision');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(63, 'Loki');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(64, 'What If...?');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(65, 'Agents of S.H.I.E.L.D.');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(66, 'Titans');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(67, 'Doom Patrol');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(68, 'Stargirl');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(69, 'Smallville');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(70, 'Heroes');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(71, 'Misfits');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(72, 'Sense8');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(73, 'Altered Carbon');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(74, 'The Expanse');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(75, 'Battlestar Galactica');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(76, 'Star Trek: Discovery');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(77, 'Star Trek: Picard');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(78, 'Doctor Who');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(79, 'Torchwood');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(80, 'Merlin');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(81, 'Spartacus');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(82, 'Rome');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(83, 'The Last Kingdom');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(84, 'Outlander');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(85, 'The Handmaid’s Tale');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(86, 'Orange Is the New Black');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(87, 'BoJack Horseman');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(88, 'Rick and Morty');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(89, 'Futurama');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(90, 'Archer');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(91, 'Bob’s Burgers');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(92, 'South Park');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(93, 'Family Guy');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(94, 'American Dad!');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(95, 'Adventure Time');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(96, 'Regular Show');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(97, 'Steven Universe');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(98, 'Gravity Falls');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(99, 'Avatar: The Last Airbender');
+INSERT INTO SERIE(id_serie, nom_serie) VALUES(100, 'The Legend of Korra');
+
+
+--JEUX DE DONNEES ABONNE
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(1, 51, '2018-03-15', 9.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(2, 52, '2018-07-20', 19.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(3, 53, '2019-01-10', 12.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(4, 54, '2019-05-25', 7.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(5, 55, '2020-03-01', 14.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(6, 56, '2020-08-12', 10.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(7, 57, '2021-02-17', 8.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(8, 58, '2021-06-30', 18.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(9, 59, '2022-01-15', 11.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(10, 60, '2022-04-10', 6.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(11, 61, '2019-11-25', 15.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(12, 62, '2020-06-05', 13.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(13, 63, '2020-12-20', 9.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(14, 64, '2021-04-11', 20.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(15, 65, '2021-09-13', 10.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(16, 66, '2022-03-23', 8.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(17, 67, '2022-07-01', 14.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(18, 68, '2018-02-05', 12.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(19, 69, '2018-10-18', 7.99, 11);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(20, 70, '2019-03-29', 19.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(21, 71, '2020-01-01', 11.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(22, 72, '2020-07-15', 6.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(23, 73, '2021-03-10', 16.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(24, 74, '2021-12-31', 12.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(25, 75, '2022-05-20', 8.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(26, 76, '2022-08-15', 14.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(27, 77, '2019-04-01', 11.99, 10);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(28, 78, '2020-02-25', 7.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(29, 79, '2020-11-11', 19.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(30, 80, '2021-07-22', 13.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(31, 81, '2022-01-05', 9.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(32, 82, '2022-09-01', 20.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(33, 83, '2018-06-15', 10.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(34, 84, '2019-01-25', 6.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(35, 85, '2019-12-01', 15.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(36, 86, '2020-03-10', 12.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(37, 87, '2020-09-20', 8.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(38, 88, '2021-05-01', 16.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(39, 89, '2021-10-12', 7.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(40, 90, '2022-02-28', 19.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(41, 91, '2018-08-01', 13.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(42, 92, '2019-02-18', 9.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(43, 93, '2019-06-20', 20.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(44, 94, '2020-07-10', 10.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(45, 95, '2020-11-01', 6.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(46, 96, '2021-01-15', 15.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(47, 97, '2021-08-25', 12.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(48, 98, '2022-05-05', 8.99, 11);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(49, 99, '2022-10-01', 14.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(50, 100, '2018-03-30', 11.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(51, 1, '2018-05-20', 10.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(52, 2, '2018-11-01', 8.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(53, 3, '2019-04-15', 12.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(54, 4, '2019-08-30', 15.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(55, 5, '2020-02-10', 6.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(56, 6, '2020-05-25', 19.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(57, 7, '2021-01-01', 13.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(58, 8, '2021-06-10', 7.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(59, 9, '2021-12-20', 9.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(60, 10, '2022-03-05', 18.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(61, 11, '2022-07-15', 14.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(62, 12, '2018-10-01', 11.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(63, 13, '2019-03-20', 8.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(64, 14, '2019-09-25', 16.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(65, 15, '2020-04-01', 10.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(66, 16, '2020-08-15', 6.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(67, 17, '2021-03-11', 20.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(68, 18, '2021-09-30', 12.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(69, 19, '2022-01-25', 9.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(70, 20, '2022-06-10', 7.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(71, 21, '2018-07-05', 19.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(72, 22, '2019-01-15', 14.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(73, 23, '2019-06-01', 13.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(74, 24, '2020-02-20', 8.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(75, 25, '2020-10-10', 11.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(76, 26, '2021-04-15', 6.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(77, 27, '2021-11-01', 15.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(78, 28, '2022-02-20', 10.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(79, 29, '2022-08-30', 9.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(80, 30, '2018-06-01', 18.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(81, 31, '2019-02-15', 7.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(82, 32, '2019-11-25', 19.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(83, 33, '2020-05-01', 12.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(84, 34, '2020-12-20', 16.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(85, 35, '2021-03-10', 10.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(86, 36, '2021-08-15', 8.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(87, 37, '2022-01-11', 14.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(88, 38, '2022-04-20', 6.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(89, 39, '2022-11-30', 11.99, 1);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(90, 40, '2018-09-10', 13.99, 3);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(91, 41, '2019-04-05', 9.99, 7);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(92, 42, '2019-07-25', 20.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(93, 43, '2020-02-01', 15.99, 5);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(94, 44, '2020-06-10', 10.99, 6);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(95, 45, '2021-01-20', 7.99, 4);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(96, 46, '2021-07-05', 8.99, 2);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(97, 47, '2022-03-15', 14.99, 8);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(98, 48, '2022-09-30', 9.99, 9);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(99, 49, '2022-12-10', 6.99, 12);
+INSERT INTO ABONNE(id_plateforme, id_spectateur, date_abo, prix_abo, duree_abo) VALUES(100, 50, '2018-11-01', 18.99, 3);
 
 
