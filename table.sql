@@ -30,7 +30,6 @@ INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(28, 'MS', 'Malais');
 INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(29, 'VI', 'Vietnamien');
 INSERT INTO LANGUE (id_langue, code, nom_langue) VALUES(30, 'SW', 'Swahili');
 
-
 --JEUX DE DONNEES CATEGORIE--
 INSERT INTO CATEGORIE (id_categorie, genre) VALUES(1, "Action");
 INSERT INTO CATEGORIE (id_categorie, genre) VALUES(2, "Aventure");
