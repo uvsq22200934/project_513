@@ -21,6 +21,7 @@ CREATE TABLE SERIE (
                        id_serie INT PRIMARY KEY ,
                        nom_serie VARCHAR (25) NOT NULL
 );
+
 CREATE TABLE FILMEPISODE (
                            id_film INT,
                            id_serie INT,
@@ -32,18 +33,29 @@ CREATE TABLE FILMEPISODE (
                            date_sortie DATE,
                            pictogramme VARCHAR(25) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
                            origine VARCHAR(25) CHECK (origine IN('Histoire vraie', 'Fait divers', 'Adaptation cinématographique')),
-                           PRIMARY KEY (id_film)
+                           PRIMARY KEY (id_film),
+
+                           --garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
+                           CONSTRAINT pictogramme_combinaison_check CHECK ( NOT (
+                            --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "-18"
+                            (pictogramme LIKE '%-12%' AND pictogramme LIKE'%-16%' AND pictogramme LIKE '%-18%')
+                            OR
+                            --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
+                            (pictogramme LIKE '%-12%' AND pictogramme LIKE '%contenu explicite%'))
 );
+
 CREATE TABLE CATEGORIE (
                            id_categorie INT PRIMARY KEY,
                            genre VARCHAR(25) NOT NULL
 );
+
 CREATE TABLE CLASSER (
                          id_categorie INT,
                          id_film INT,
                          FOREIGN KEY (id_categorie) REFERENCES CATEGORIE(id_categorie),
                          FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
+
 CREATE TABLE PARENT (
                         id_film1 INT, -- Premier film/série dans la relation
                         id_film2 INT, -- Second film/série dans la relation
@@ -51,6 +63,7 @@ CREATE TABLE PARENT (
                         FOREIGN KEY (id_film1) REFERENCES FILMEPISODE(id_film), -- Référence au film/série 1
                         FOREIGN KEY (id_film2) REFERENCES FILMEPISODE(id_film) -- Référence au film/série 2
 );
+
 CREATE TABLE LANGUE (
                         id_langue INT PRIMARY KEY,
                         code VARCHAR(10) NOT NULL UNIQUE, -- Ex : FR, EN, ES
@@ -83,6 +96,7 @@ CREATE TABLE CRITIQUE (
                           id_spectateur INT,
                           note INT CHECK (note BETWEEN 0 AND 10),
                           commentaire VARCHAR(255),
+                          date_critique DATE DEFAULT SYSDATE,
                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE,
                           FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur) ON DELETE CASCADE
 );
@@ -101,6 +115,7 @@ CREATE TABLE DIFFUSE (
                          FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE,
                          FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE
 );
+
 CREATE TABLE VISIONNE (
                           id_visionnage INT PRIMARY KEY,
                           id_film INT,
@@ -144,54 +159,57 @@ CREATE TABLE TRAVAILLE (
                            date_contrat_fin DATE,
                            salaire DECIMAL(10, 2),
                            FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
-                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
+                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
+
+                           --garantir la durée maximale d'un contrat, et la date de début est non null
+                           CONSTRAINT duree_maximale CHECK (date_contrat_fin <= date_contrat_debut + 3650),
+                           --garantir la chronologie des dates de contrats
+                           CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin),
 );
 
 
---CONTRAINTES / TRIGGERS
 
+-- CRÉATION DE TRIGGER
 
--- TRAVAIL
-
---garantir la durée maximale d'un contrat, et la date de début est non null
-ALTER TABLE TRAVAILLE
-ADD CONSTRAINT duree_maximale CHECK (
-    date_contrat_fin <= ADD_MONTHS(date_contrat_debut, INTERVAL 10 YEAR) --Vérifie que la fin est dans 10 ans
-    AND date_contrat_debut IS NOT NULL --Vérifie que la date de début n'est pas nulle
-);
-
---garantir la chronologie des dates de contrats
-ALTER TABLE TRAVAILLE
-ADD CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin);
 
 
 -- PLATEFORME
 
 --garantir que la date d'abonnement est antérieure à la date actuelle
-ALTER TABLE ABONNE
-ADD CONSTRAINT check_date_abo
-CHECK (date_abo <= CURRENT_DATE);
+CREATE OR REPLACE TRIGGER check_date_abonnement
+BEFORE INSERT OR UPDATE ON ABONNE
+FOR EACH ROW
+BEGIN
+    IF :NEW.date_abo > SYSDATE THEN
+        RAISE_APPLICATION_ERROR(-20001, 'La date d abonnement ne peut pas être dans le futur.');
+    END IF;
+END;
+/
+
 
 --garantir que la date de diffusion d'un film est postérieure à sa date de sortie
-ALTER TABLE DIFFUSE
-ADD CONSTRAINT check_date_diffusion
-CHECK (date_dispo >= date_sortie);
+CREATE OR REPLACE TRIGGER check_date_diffusion
+BEFORE INSERT OR UPDATE ON DIFFUSE
+FOR EACH ROW
+DECLARE
+    v_date_sortie DATE;
+BEGIN
+    -- Récupérer la date de sortie depuis la table FILMEPISODE
+    SELECT date_sortie
+    INTO v_date_sortie
+    FROM FILMEPISODE
+    WHERE id_film = :NEW.id_film;
+
+    -- Vérifier que date_dispo est postérieure ou égale à date_sortie
+    IF :NEW.date_dispo < v_date_sortie THEN
+        RAISE_APPLICATION_ERROR(-20001, 'La date de disponibilité ne peut pas être antérieure à la date de sortie du film.');
+    END IF;
+END;
+/
 
 
 -- FILMS
 
---garantir qu'un film ne puisse avoir plusieurs restrictions d'âge
-ALTER TABLE FILMEPISODE
-ADD CONSTRAINT pictogramme_combinaison_check
-CHECK (
-    NOT (
-        --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "-18"
-        (pictogramme LIKE '%-12%' AND pictogramme LIKE'%-16%' AND pictogramme LIKE '%-18%')
-        OR
-        --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
-        (pictogramme LIKE '%-12%' AND pictogramme LIKE '%contenu explicite%')
-    )
-);
 
 --garantir que les champs pour séries sont remplis uniquement pour les séries et vides pour les films
 CREATE OR REPLACE TRIGGER check_saison_episode_not_null
@@ -265,6 +283,7 @@ END;
 
 -- VISIONNAGE
 
+-- XXXXXXXXXX
 --garantir que le spectateur a l'âge requis pour visionner un film
 CREATE OR REPLACE TRIGGER check_age_restriction
 BEFORE INSERT OR UPDATE ON VISIONNE
@@ -300,7 +319,7 @@ BEGIN
         END IF;
     END IF;
 END;
-
+/
 
 --vérifier que le film était disponible sur une plateforme du spectateur au moment du visionnage
 CREATE OR REPLACE TRIGGER check_filme_visionnage_disponibilite
@@ -340,6 +359,7 @@ BEGIN
 
 END;
 /
+-- XXXXXXXXXXXXXX
 
 --Vérifier que la date de visionnage est antérieure ou égale à la date actuelle
 CREATE OR REPLACE TRIGGER check_date_visionnage
@@ -354,18 +374,9 @@ END;
 /
 
 
-
 -- CRITIQUES
 
---supprimer les critiques associés à un film ou une série qui est retiré de la plateforme
-ALTER TABLE CRITIQUE
-ADD CONSTRAINT fk_film_critique
-FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
-ON DELETE CASCADE;
-
---création d'dune ligne en update pour la date de la critique
-ALTER TABLE CRITIQUE ADD COLUMN date_critique DATETIME DEFAULT CURRENT_TIMESTAMP;
-
+--XXXXXXXXXXXXX
 --garantir une critique par spectateur par jour
 CREATE OR REPLACE TRIGGER check_critique_one_per_day
 BEFORE INSERT ON CRITIQUE
@@ -400,6 +411,7 @@ BEGIN
     END IF;
 END;
 /
+--XXXXXXXXXXXXX
 
 
 -- LANGUE
