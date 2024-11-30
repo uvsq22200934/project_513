@@ -151,7 +151,8 @@ CREATE TABLE TRAVAILLE (
 --CONTRAINTE
 
 ALTER TABLE VISIONNE 
-    ADD langue_audio VARCHAR(10) NOT NULL,
+    ADD langue_audio VARCHAR(10) NOT NULL;
+ALTER TABLE VISIONNE
     ADD langue_sous_titre VARCHAR(10) DEFAULT NULL;
 
 --création d'une ligne en update pour la date de la critique
