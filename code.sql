@@ -453,3 +453,77 @@ BEGIN
     END IF;
 END;
 /
+
+
+
+
+-- VUES et DROITS
+
+
+-- CRÉATION DE LA VUE DE MODÉRATION DES CRITIQUES
+
+CREATE VIEW CRITIQUES_A_MODERER AS
+SELECT
+    c.id_critique,
+    c.id_film,
+    c.id_spectateur,
+    c.note,
+    c.commentaire,
+    s.nom,
+    s.prenom
+FROM CRITIQUE c
+JOIN SPECTATEUR s ON c.id_spectateur = s.id_spectateur
+WHERE
+    -- Critiques avec une note basse (par exemple note <= 4)
+    c.note <= 4
+    OR
+    -- Critiques contenant des mots inappropriés
+    REGEXP_LIKE(c.commentaire, '(merde|putain|con|enculé|enculer|pd|pute|nègre)', 'i');
+
+
+-- Créer un rôle pour les modérateurs
+CREATE ROLE moderateur;
+-- Donner les droits de sélection sur la vue aux modérateurs
+GRANT SELECT ON CRITIQUES_A_MODERER TO moderateur;
+-- Donner les droits de suppression sur la table CRITIQUE aux modérateurs
+GRANT DELETE ON CRITIQUE TO moderateur;
+
+
+-- EX Suppression d'une critique par un modérateur
+
+--DELETE FROM CRITIQUE
+--WHERE id_critique = <id_critique_a_supprimer>
+--  AND id_film = <id_film>
+--  AND id_spectateur = <id_spectateur>;
+
+
+
+-- CRÉATION DE LA VUE DE STATISTIQUES
+
+CREATE VIEW TOP_3_FILMS_PAR_CATEGORIE AS
+SELECT
+    categorie,
+    film,
+    nb_visionnages
+FROM (
+    SELECT
+        c.genre AS categorie,
+        fe.titre AS film,
+        COUNT(v.id_visionnage) AS nb_visionnages,
+        ROW_NUMBER() OVER (PARTITION BY c.genre ORDER BY COUNT(v.id_visionnage) DESC) AS rank
+    FROM
+        VISIONNE v
+    JOIN FILMEPISODE fe ON v.id_film = fe.id_film
+    JOIN CLASSER cl ON fe.id_film = cl.id_film
+    JOIN CATEGORIE c ON cl.id_categorie = c.id_categorie
+    GROUP BY
+        c.genre, fe.titre
+) subquery
+WHERE rank <= 3;
+
+
+--créer le rôle de statisticien
+CREATE ROLE statisticiens;
+--leur accorder le droit d'accès à la vue des statistiques
+GRANT SELECT ON TOP_3_FILMS_PAR_CATEGORIE TO statisticiens;
+
