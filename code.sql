@@ -41,7 +41,7 @@ CREATE TABLE FILMEPISODE (
                             (pictogramme LIKE '%-12%' AND pictogramme LIKE'%-16%' AND pictogramme LIKE '%-18%')
                             OR
                             --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
-                            (pictogramme LIKE '%-12%' AND pictogramme LIKE '%contenu explicite%'))
+                            (pictogramme LIKE '%-12%' AND pictogramme LIKE '%contenu explicite%')))
 );
 
 CREATE TABLE CATEGORIE (
@@ -120,7 +120,7 @@ CREATE TABLE VISIONNE (
                           id_visionnage INT PRIMARY KEY,
                           id_film INT,
                           id_plateforme INT,
-                          id_spectateur
+                          id_spectateur INT,
                           date_visionnage DATE,
                           temps_visionnage INT, -- temps en minutes
                           langue_audio VARCHAR (15),
@@ -152,21 +152,22 @@ CREATE TABLE PERSONNE (
                           PRIMARY KEY (nom, prenom)
 );
 
-CREATE TABLE TRAVAILLE (
-                           id_travaille INT PRIMARY KEY,
-                           nom VARCHAR(255),
-                           prenom VARCHAR(255),
-                           id_film INT,
-                           date_contrat_debut DATE,
-                           date_contrat_fin DATE,
-                           salaire DECIMAL(10, 2),
-                           FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
-                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
+CREATE TABLE TRAVAILLE
+(
+    id_travaille       INT PRIMARY KEY,
+    nom                VARCHAR(255),
+    prenom             VARCHAR(255),
+    id_film            INT,
+    date_contrat_debut DATE,
+    date_contrat_fin   DATE,
+    salaire            DECIMAL(10, 2),
+    FOREIGN KEY (nom, prenom) REFERENCES PERSONNE (nom, prenom),
+    FOREIGN KEY (id_film) REFERENCES FILMEPISODE (id_film),
 
-                           --garantir la durée maximale d'un contrat, et la date de début est non null
-                           CONSTRAINT duree_maximale CHECK (date_contrat_fin <= date_contrat_debut + 3650),
-                           --garantir la chronologie des dates de contrats
-                           CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin),
+    -- Contrainte pour garantir la durée maximale d'un contrat
+    CONSTRAINT duree_maximale CHECK (date_contrat_fin <= ADD_MONTHS(date_contrat_debut, 120)), -- 10 ans
+    -- Contrainte pour garantir que la date de début précède la date de fin
+    CONSTRAINT date_debut_avant_fin CHECK (date_contrat_debut < date_contrat_fin)
 );
 
 
@@ -187,7 +188,6 @@ BEGIN
     END IF;
 END;
 /
-
 
 --garantir que la date de diffusion d'un film est postérieure à sa date de sortie
 CREATE OR REPLACE TRIGGER check_date_diffusion
@@ -212,9 +212,7 @@ END;
 
 -- FILMS
 
-
 --garantir que les champs pour séries sont remplis uniquement pour les séries et vides pour les films
-TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_saison_episode_not_null
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
@@ -246,9 +244,7 @@ BEGIN
 END;
 /
 
-
 --garantir la cohérence entre le genre et la durée d'un film
-TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_duree_court_metrage
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
@@ -280,9 +276,7 @@ BEGIN
 END;
 /
 
-
 --Vérifier qu'un film ait une date de sortie antérieure ou égale à la date actuelle
-TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_date_sortie
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
@@ -297,7 +291,6 @@ END;
 
 -- VISIONNAGE
 
--- XXXXXXXXXX
 --garantir que le spectateur a l'âge requis pour visionner un film
 CREATE OR REPLACE TRIGGER check_age_restriction
 BEFORE INSERT OR UPDATE ON VISIONNE
@@ -336,7 +329,7 @@ END;
 /
 
 --vérifier que le film était disponible sur une plateforme du spectateur au moment du visionnage
-CREATE OR REPLACE TRIGGER check_filme_visionnage_disponibilite
+CREATE OR REPLACE TRIGGER check_film_visionnage_disponibilite
 BEFORE INSERT OR UPDATE ON VISIONNE
 FOR EACH ROW
 DECLARE
@@ -352,7 +345,7 @@ BEGIN
     FROM DIFFUSE
     WHERE id_film = :NEW.id_film
     AND id_plateforme = :NEW.id_plateforme
-    AND :NEW.date_visionnage BETWEEN date_dispo AND (date_dispo + INTERVAL duree_dispo DAY);
+    AND :NEW.date_visionnage BETWEEN date_dispo AND (date_dispo + INTERVAL '1' DAY * duree_dispo);
 
     -- Si le film n'était pas disponible au moment du visionnage, lever une erreur
     IF film_disponible = 0 THEN
@@ -373,7 +366,6 @@ BEGIN
 
 END;
 /
--- XXXXXXXXXXXXXX
 
 --Vérifier que la date de visionnage est antérieure ou égale à la date actuelle
 CREATE OR REPLACE TRIGGER check_date_visionnage
@@ -390,7 +382,6 @@ END;
 
 -- CRITIQUES
 
---XXXXXXXXXXXXX
 --garantir une critique par spectateur par jour
 CREATE OR REPLACE TRIGGER check_critique_one_per_day
 BEFORE INSERT ON CRITIQUE
@@ -425,7 +416,6 @@ BEGIN
     END IF;
 END;
 /
---XXXXXXXXXXXXX
 
 
 -- LANGUE
