@@ -105,12 +105,14 @@ CREATE TABLE VISIONNE (
                           id_visionnage INT PRIMARY KEY,
                           id_film INT,
                           id_plateforme INT,
+                          id_spectateur
                           date_visionnage DATE,
                           temps_visionnage INT, -- temps en minutes
                           langue_audio VARCHAR (15),
                           langue_sous_titre VARCHAR(15),
                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE,
                           FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE,
+                          FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur) ON DELETE CASCADE,
                           FOREIGN KEY (langue_audio) REFERENCES LANGUE(code) ON DELETE CASCADE,
                           FOREIGN KEY (langue_sous_titre) REFERENCES LANGUE(code) ON DELETE CASCADE
 );
@@ -194,6 +196,7 @@ CHECK (
 );
 
 --garantir que les champs pour séries sont remplis uniquement pour les séries et vides pour les films
+TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_saison_episode_not_null
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
@@ -201,13 +204,13 @@ BEGIN
     -- Si le type est une série
     IF :NEW.type = 'série' THEN
         IF :NEW.num_episode IS NULL THEN
-            RAISE_APPLICATION_ERROR(-20001, 'Le champ num_episode ne peut pas être NULL pour un épisode.');
+            RAISE_APPLICATION_ERROR(-20001, 'Le champ num_episode ne peut pas être NULL pour une série.');
         END IF;
         IF :NEW.num_saison IS NULL THEN
-            RAISE_APPLICATION_ERROR(-20002, 'Le champ num_saison ne peut pas être NULL pour un épisode.');
+            RAISE_APPLICATION_ERROR(-20002, 'Le champ num_saison ne peut pas être NULL pour une série.');
         END IF;
         IF :NEW.id_serie IS NULL THEN
-            RAISE_APPLICATION_ERROR(-20003, 'Le champ id_serie ne peut pas être NULL pour un épisode.');
+            RAISE_APPLICATION_ERROR(-20003, 'Le champ id_serie ne peut pas être NULL pour une série.');
         END IF;
 
     -- Sinon, si le type est un film
@@ -223,8 +226,11 @@ BEGIN
         END IF;
     END IF;
 END;
+/
+
 
 --garantir la cohérence entre le genre et la durée d'un film
+TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_duree_court_metrage
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
@@ -232,11 +238,17 @@ DECLARE
     genre_film VARCHAR2(255);
 BEGIN
     -- Récupérer le genre du film depuis les tables CLASSER et CATEGORIE
-    SELECT c.genre
-    INTO genre_film
-    FROM CLASSER cl
-    JOIN CATEGORIE c ON cl.id_categorie = c.id_categorie
-    WHERE cl.id_film = :NEW.id_film;
+    BEGIN
+        SELECT c.genre
+        INTO genre_film
+        FROM CLASSER cl
+        JOIN CATEGORIE c ON cl.id_categorie = c.id_categorie
+        WHERE cl.id_film = :NEW.id_film;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            -- Si aucune correspondance n'est trouvée, lever une erreur
+            RAISE_APPLICATION_ERROR(-20003, 'Le genre du film est introuvable.');
+    END;
 
     -- Vérifier si le genre est "court-métrage" et que la durée est supérieure ou égale à 40 minutes
     IF genre_film = 'court-métrage' AND :NEW.duree >= 40 THEN
@@ -250,13 +262,15 @@ BEGIN
 END;
 /
 
+
 --Vérifier qu'un film ait une date de sortie antérieure ou égale à la date actuelle
+TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_date_sortie
 BEFORE INSERT OR UPDATE ON FILMEPISODE
 FOR EACH ROW
 BEGIN
-    -- Vérifier si la date de sortie est antérieure ou égale à la date actuelle
-    IF :NEW.date_sortie > CURRENT_DATE THEN
+    -- Vérifier si la date de sortie est postérieure à la date actuelle
+    IF :NEW.date_sortie > SYSDATE THEN
         RAISE_APPLICATION_ERROR(-20002, 'La date de sortie ne peut pas être dans le futur.');
     END IF;
 END;
