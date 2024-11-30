@@ -42,7 +42,7 @@ CREATE TABLE FILMEPISODE (
                             OR
                             --Vérifie qu'on n'a pas à la fois les pictogrammes "-12" et "contenu explicite"
                             (pictogramme LIKE '%-12%' AND pictogramme LIKE '%contenu explicite%'))
-);
+));
 
 CREATE TABLE CATEGORIE (
                            id_categorie INT PRIMARY KEY,
@@ -431,6 +431,7 @@ END;
 -- LANGUE
 
 --garantir la disponibilité de la langue
+TRIGGER VERIFIE
 CREATE OR REPLACE TRIGGER check_langues_disponibles
 BEFORE INSERT OR UPDATE ON VISIONNE
 FOR EACH ROW
