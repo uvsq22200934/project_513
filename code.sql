@@ -1,167 +1,161 @@
---CREATION DE TABLES
+-- DROP TABLE
+DROP TABLE TRAVAILLE;
+DROP TABLE PERSONNE;
+DROP TABLE ABONNE;
+DROP TABLE VISIONNE;
+DROP TABLE DIFFUSE;
+DROP TABLE PLATEFORME;
+DROP TABLE CRITIQUE;
+DROP TABLE SPECTATEUR;
+DROP TABLE DISPONIBLE;
+DROP TABLE LANGUE;
+DROP TABLE PARENT;
+DROP TABLE CLASSER;
+DROP TABLE CATEGORIE;
+DROP TABLE FILMEPISODE;
+DROP TABLE SERIE;
 
+--CREATION DE TABLE
 
--- Table FILMEPISODE
-CREATE TABLE FILMEPISODE (
-    id_film INT,
-    id_serie INT,
-    type VARCHAR(5) NOT NULL CHECK (type IN ('film', 'série')),
-    titre VARCHAR(255) NOT NULL,
-    num_saison INT,
-    duree INT NOT NULL, -- durée en minutes
-    date_sortie DATE NOT NULL,
-    pictogramme VARCHAR(50) CHECK (pictogramme IN('mal-voyant', '-10', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tout public')),
-    origine VARCHAR(50) CHECK (origine IN('histoire vraie', 'faits divers', 'adaptation cinématographique')),
-    PRIMARY KEY (id_film),
-    FOREIGN KEY (id_serie) REFERENCES SERIE(id_serie)
-);
-
--- Table SERIE
 CREATE TABLE SERIE (
-    id_serie INT,
-    nom_serie VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_serie)
-)
--- Table CATEGORIE
+                       id_serie INT PRIMARY KEY ,
+                       nom_serie VARCHAR (25) NOT NULL
+);
+CREATE TABLE FILMEPISODE (
+                           id_film INT,
+                           id_serie INT,
+                           type VARCHAR(10) CHECK (type IN ('Film', 'Serie')),
+                           titre VARCHAR(100) NOT NULL,
+                           num_saison INT,
+                           num_episode INT,
+                           duree INT NOT NULL,
+                           date_sortie DATE,
+                           pictogramme VARCHAR(25) CHECK (pictogramme IN('mal-voyant', '-12', '-16', '-18', 'contenu explicite', 'violence', 'sexe', 'Tous public')),
+                           origine VARCHAR(25) CHECK (origine IN('Histoire vraie', 'Fait divers', 'Adaptation cinématographique')),
+                           PRIMARY KEY (id_film)
+);
 CREATE TABLE CATEGORIE (
-    id_categorie INT,
-    genre VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_categorie)
+                           id_categorie INT PRIMARY KEY,
+                           genre VARCHAR(25) NOT NULL
 );
-
--- Table CLASSER
 CREATE TABLE CLASSER (
-    id_categorie INT NOT NULL,
-    id_film INT NOT NULL,
-    FOREIGN KEY (id_categorie) REFERENCES CATEGORIE(id_categorie),
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
+                         id_categorie INT,
+                         id_film INT,
+                         FOREIGN KEY (id_categorie) REFERENCES CATEGORIE(id_categorie),
+                         FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
-
--- Table PARENT
 CREATE TABLE PARENT (
-    id_film1 INT NOT NULL, -- Premier film/série dans la relation
-    id_film2 INT NOT NULL, -- Second film/série dans la relation
-    UNIQUE (id_film1, id_film2), -- Contrainte pour éviter les doublons
-    FOREIGN KEY (id_film1) REFERENCES FILMEPISODE(id_film), -- Référence au film/série 1
-    FOREIGN KEY (id_film2) REFERENCES FILMEPISODE(id_film) -- Référence au film/série 2
+                        id_film1 INT, -- Premier film/série dans la relation
+                        id_film2 INT, -- Second film/série dans la relation
+                        UNIQUE (id_film1, id_film2), -- Contrainte pour éviter les doublons
+                        FOREIGN KEY (id_film1) REFERENCES FILMEPISODE(id_film), -- Référence au film/série 1
+                        FOREIGN KEY (id_film2) REFERENCES FILMEPISODE(id_film) -- Référence au film/série 2
 );
-
-
--- Table LANGUE
 CREATE TABLE LANGUE (
-    id_langue INT,
-    code VARCHAR(3) NOT NULL UNIQUE, -- Ex : FR, EN, ES
-    nom_langue VARCHAR(100) NOT NULL, -- Ex : Français, Anglais, Espagnol
-    PRIMARY KEY (id_langue)
+                        id_langue INT PRIMARY KEY,
+                        code VARCHAR(10) NOT NULL UNIQUE, -- Ex : FR, EN, ES
+                        nom_langue VARCHAR(30) NOT NULL -- Ex : Français, Anglais, Espagnol
+
 );
--- Table DISPONIBLE
+
 CREATE TABLE DISPONIBLE (
-    id_film INT, -- Film ou série concerné(e)
-    langue_audio VARCHAR(3) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
-    langue_sous_titre VARCHAR(3), -- Code de langue pour les sous-titres
-    UNIQUE (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film), -- Référence au film
-    FOREIGN KEY (langue_audio) REFERENCES LANGUE(code),
-    FOREIGN KEY (langue_sous_titre) REFERENCES LANGUE(code),
+                            id_langue INT,
+                            id_film INT, -- Film ou série concerné(e)
+                            langue_audio VARCHAR(10) NOT NULL,  -- Code de langue pour l'audio (ex : FR, EN, etc.)
+                            langue_sous_titre VARCHAR(10), -- Code de langue pour les sous-titres
+                            UNIQUE (id_film, langue_audio, langue_sous_titre), -- Unicité des langues par film
+                            FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE, -- Référence au film
+                            FOREIGN KEY (langue_audio) REFERENCES LANGUE(code) ON DELETE CASCADE ON UPDATE CASCADE,
+                            FOREIGN KEY (langue_sous_titre) REFERENCES LANGUE(code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Table SPECTATEUR
 CREATE TABLE SPECTATEUR (
-    id_spectateur INT,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL ,
-    age INT CHECK (age >= 16)
-    sexe VARCHAR(5) CHECK (sexe IN ('Homme', 'Femme')),
-    PRIMARY KEY(id_spectateur)
+                            id_spectateur INT PRIMARY KEY,
+                            nom VARCHAR(30),
+                            prenom VARCHAR(30),
+                            age INT CHECK (age >= 16),
+                            sexe VARCHAR(15) CHECK (sexe IN ('Homme', 'Femme'))
 );
 
--- Table CRITIQUE
 CREATE TABLE CRITIQUE (
-    id_critique INT,
-    id_film INT NOT NULL,
-    id_spectateur INT NOT NULL ,
-    note INT CHECK (note BETWEEN 0 AND 10) NOT NULL,
-    commentaire TEXT,
-    PRIMARY KEY(id_critique),
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
-    FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
+                          id_critique INT PRIMARY KEY,
+                          id_film INT,
+                          id_spectateur INT,
+                          note INT CHECK (note BETWEEN 0 AND 10),
+                          commentaire VARCHAR(255),
+                          FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
+                          FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Table PLATEFORME
 CREATE TABLE PLATEFORME (
-    id_plateforme INT,
-    nom VARCHAR(255) NOT NULL,
-    PRIMARY KEY(id_plateforme)
+                            id_plateforme INT PRIMARY KEY,
+                            nom VARCHAR(30) NOT NULL
 );
 
--- Table DIFFUSE
 CREATE TABLE DIFFUSE (
-    id_film INT,
-    id_plateforme INT,
-    date_dispo DATE NOT NULL,
-    duree_dispo INT NOT NULL CHECK (duree_dispo > 0), -- durée en jours
-    PRIMARY KEY (id_film, id_plateforme),
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
-    FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
+                         id_film INT,
+                         id_plateforme INT,
+                         date_dispo DATE,
+                         duree_dispo INT CHECK (duree_dispo > 0), -- durée en jours
+                         PRIMARY KEY (id_film, id_plateforme),
+                         FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
+                         FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
--- Table VISIONNE
 CREATE TABLE VISIONNE (
-    id_visionnage INT,
-    id_film INT NOT NULL ,
-    id_plateforme INT NOT NULL ,
-    date_visionnage DATE NOT NULL ,
-    temps_visionnage INT NOT NULL , -- temps en minutes
-    temps_pause INT NOT NULL , -- temps de pause en minutes
-    PRIMARY KEY(id_visionnage),
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film),
-    FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme)
+                          id_visionnage INT PRIMARY KEY,
+                          id_film INT,
+                          id_plateforme INT,
+                          date_visionnage DATE,
+                          temps_visionnage INT, -- temps en minutes
+                          langue_audio VARCHAR (15),
+                          langue_sous_titre VARCHAR(15),
+                          FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film) ON DELETE CASCADE ON UPDATE CASCADE,
+                          FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE ON UPDATE CASCADE,
+                          FOREIGN KEY (langue_audio) REFERENCES LANGUE(code) ON DELETE CASCADE ON UPDATE CASCADE,
+                          FOREIGN KEY (langue_sous_titre) REFERENCES LANGUE(code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Table ABONNE
 CREATE TABLE ABONNE (
-    id_plateforme INT,
-    id_spectateur INT,
-    date_abo DATE NOT NULL,
-    prix_abo DECIMAL(5, 2) CHECK (prix_abo >= 0),
-    duree_abo NUMBER NOT NULL CHECK (duree_abo> 1), --représenter en mois
-    PRIMARY KEY (id_plateforme, id_spectateur),
-    FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme),
-    FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur)
+                        id_plateforme INT,
+                        id_spectateur INT,
+                        date_abo DATE,
+                        prix_abo DECIMAL(5, 2) CHECK (prix_abo >= 0),
+                        duree_abo INT CHECK( duree_abo > 0), --temps en mois
+                        PRIMARY KEY (id_plateforme, id_spectateur),
+                        FOREIGN KEY (id_plateforme) REFERENCES PLATEFORME(id_plateforme) ON DELETE CASCADE ON UPDATE CASCADE,
+                        FOREIGN KEY (id_spectateur) REFERENCES SPECTATEUR(id_spectateur) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Table PERSONNE
 CREATE TABLE PERSONNE (
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
-    sexe VARCHAR(50),
-    age INT,
-    metier VARCHAR(255) NOT NULL ,
-    PRIMARY KEY (nom, prenom)
+                          nom VARCHAR(25),
+                          prenom VARCHAR(25),
+                          sexe VARCHAR(15),
+                          age INT,
+                          metier VARCHAR(30),
+                          PRIMARY KEY (nom, prenom)
 );
 
--- Table TRAVAILLE
 CREATE TABLE TRAVAILLE (
-    id_travaille INT,
-    nom VARCHAR(255) NOT NULL ,
-    prenom VARCHAR(255) NOT NULL ,
-    id_film INT NOT NULL ,
-    date_contrat_debut DATE,
-    date_contrat_fin DATE,
-    salaire DECIMAL(10, 2),
-    PRIMARY KEY(id_travaille),
-    FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
-    FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
+                           id_travaille INT PRIMARY KEY,
+                           nom VARCHAR(255),
+                           prenom VARCHAR(255),
+                           id_film INT,
+                           date_contrat_debut DATE,
+                           date_contrat_fin DATE,
+                           salaire DECIMAL(10, 2),
+                           FOREIGN KEY (nom, prenom) REFERENCES PERSONNE(nom, prenom),
+                           FOREIGN KEY (id_film) REFERENCES FILMEPISODE(id_film)
 );
 
 
---CONTRAINTES
+--CONTRAINTE
 
 ALTER TABLE VISIONNE 
-    ADD langue_audio VARCHAR(10) NOT NULL, 
+    ADD langue_audio VARCHAR(10) NOT NULL;
+ALTER TABLE VISIONNE
     ADD langue_sous_titre VARCHAR(10) DEFAULT NULL;
 
---création d'dune ligne en update pour la date de la critique
+--création d'une ligne en update pour la date de la critique
 ALTER TABLE CRITIQUE ADD COLUMN date_critique DATETIME DEFAULT CURRENT_TIMESTAMP;
 
 --garantir la durée maximale d'un contrat, et la date de début est non null
@@ -193,7 +187,7 @@ CHECK (
     )
 );
 
---garantir que le spectateur a l'âge requit pour visionner un film
+--garantir que le spectateur à l'âge requit pour visionner un film
 CREATE TRIGGER check_age_restriction
 BEFORE INSERT ON VISIONNE
 FOR EACH ROW
@@ -223,16 +217,22 @@ BEGIN
     END IF;
 END;
 
---garantir que le champ de n°épisode est rempli pour les séries mais pas pour les films
+--garantir que le champ de n°épisode et n°saison est remplie pour les séries mais pas pour les films
 CREATE TRIGGER check_saison_episode_not_null
 BEFORE INSERT ON FILMEPISODE
 FOR EACH ROW
 BEGIN
     --Si le type est une série
-    IF NEW.type = 'épisode' THEN
+    IF NEW.type = 'série' THEN
+        --Vérifier que num_saison et num_episode ne sont pas NULL
+        IF NEW.num_saison IS NULL THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Le champ num_saison ne peut pas être NULL pour une série.';
+        END IF;
+        
         IF NEW.num_episode IS NULL THEN
             SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Le champ num_episode ne peut pas être NULL pour un épisode.';
+            SET MESSAGE_TEXT = 'Le champ num_episode ne peut pas être NULL pour une série.';
         END IF;
     END IF;
 END;
@@ -307,20 +307,20 @@ FOR EACH ROW
 BEGIN
     DECLARE langue_disponible INT;
     
-    --vérifier si la langue audio est disponible pour le film dans la table DISPONIBLE
+    -- Vérifier si la langue audio est disponible pour le film dans la table DISPONIBLE
     SELECT COUNT(*)
     INTO langue_disponible
     FROM DISPONIBLE
     WHERE id_film = NEW.id_film
       AND langue_audio = NEW.langue_audio;
     
-    --si la langue audio n'est pas disponible, générer une erreur
+    -- Si la langue audio n'est pas disponible, générer une erreur
     IF langue_disponible = 0 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = "La langue audio spécifiée n'est pas disponible pour ce film.";
     END IF;
 
-    --vérifier si la langue des sous-titres est spécifiée et si elle est disponible
+    -- Vérifier si la langue des sous-titres est spécifiée et si elle est disponible
     IF NEW.langue_sous_titre IS NOT NULL THEN
         SELECT COUNT(*)
         INTO langue_disponible
@@ -328,7 +328,7 @@ BEGIN
         WHERE id_film = NEW.id_film
           AND langue_sous_titre = NEW.langue_sous_titre;
         
-        --si la langue des sous-titres n'est pas disponible, générer une erreur
+        -- Si la langue des sous-titres n'est pas disponible, générer une erreur
         IF langue_disponible = 0 THEN
             SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = "La langue des sous-titres spécifiée n'est pas disponible pour ce film.";
@@ -336,7 +336,7 @@ BEGIN
     END IF;
 END;
 
---vérifie que la version visionnée(audio et sous-titre) est disponible
+--verifie que la version visionnée(audio et sous-titre) est disponible
 CREATE TRIGGER check_langues_disponibles
 BEFORE INSERT ON VISIONNE
 FOR EACH ROW
@@ -370,5 +370,3 @@ BEGIN
         END IF;
     END IF;
 END;
-
---
