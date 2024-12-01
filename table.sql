@@ -473,7 +473,6 @@ INSERT INTO CLASSER(id_categorie, id_film) VALUES    (5, 66);
 
 
 
-
 --JEUX DE DONNEES PARENT
 INSERT INTO PARENT(id_film1, id_film2) VALUES(11,12);
 INSERT INTO PARENT(id_film1, id_film2) VALUES(12,13);
