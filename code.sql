@@ -478,7 +478,7 @@ WHERE
     c.note <= 4
     OR
     -- Critiques contenant des mots inappropriés
-    REGEXP_LIKE(c.commentaire, '(merde|putain|con|enculé|enculer|pd|pute|nègre)', 'i');
+    REGEXP_LIKE(c.commentaire, '(merde|putain|con|enculé|enculer|pd|pute)', 'i');
 
 
 -- Créer un rôle pour les modérateurs

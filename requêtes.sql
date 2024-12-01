@@ -120,3 +120,87 @@ group by ca.genre
 order by calcul_moyenne DESC
 FETCH FIRST ROW ONLY;
 
+--8) Trouver la plateforme qui contient le plus de films romantiques(catégorie).
+SELECT p.nom AS plateforme, COUNT(*) AS nb_films_romantiques
+FROM PLATEFORME p, DIFFUSE d, FILMEPISODE f, CLASSER c, CATEGORIE cat
+WHERE p.id_plateforme = d.id_plateforme AND d.id_film = f.id_film AND f.id_film = c.id_film AND c.id_categorie = cat.id_categorie
+AND f.type = 'film'
+AND cat.genre = 'romantique'
+GROUP BY p.nom
+ORDER BY nb_films_romantiques DESC
+FETCH FIRST 1 ROWS WITH TIES;
+
+--9) Trouver tous les films dans lesquels ont joué à la fois Leonardo Dicaprio et Kate Winslet.
+SELECT DISTINCT f.titre
+FROM FILMEPISODE f, TRAVAILLE t1, TRAVAILLE t2
+WHERE t1.id_film = f.id_film AND t2.id_film = f.id_film
+AND f.type = 'film'
+AND UPPER(t1.nom) = 'DICAPRIO' AND UPPER(t1.prenom) = 'LEONARDO'
+AND UPPER(t2.nom) = 'WINSLET' AND UPPER(t2.prenom) = 'KATE';
+
+--10) Donner les films les plus visionnés pour chaque catégorie (en temps de visionnage).
+SELECT *
+FROM (
+    SELECT
+        cat.genre AS categorie,
+        f.titre AS film,
+        SUM(v.temps_visionnage) AS temps_total,
+        RANK() OVER (PARTITION BY cat.genre ORDER BY SUM(v.temps_visionnage) DESC) AS rang
+    FROM CATEGORIE cat
+    JOIN CLASSER c ON cat.id_categorie = c.id_categorie
+    JOIN FILMEPISODE f ON c.id_film = f.id_film
+    JOIN VISIONNE v ON f.id_film = v.id_film
+    WHERE f.type = 'film'
+    GROUP BY cat.genre, f.titre
+)
+WHERE rang = 1;
+
+--11) Trouver les abonnés qui ont visionné tous les films disponibles.
+SELECT a.id_spectateur, s.nom, s.prenom
+FROM ABONNE a, SPECTATEUR s, VISIONNE v, FILMEPISODE f
+WHERE a.id_spectateur = s.id_spectateur AND v.id_spectateur = a.id_spectateur AND v.id_film = f.id_film
+AND f.type = 'film'
+GROUP BY a.id_spectateur, s.nom, s.prenom
+HAVING COUNT(DISTINCT v.id_film) = (SELECT COUNT(DISTINCT id_film)
+FROM FILMEPISODE
+WHERE type = 'film');
+
+--12)Trouver les abonnés qui ont des comptes sur toutes les plateformes de visionnage.
+SELECT a.id_spectateur, s.nom, s.prenom
+FROM ABONNE a, SPECTATEUR s
+WHERE a.id_spectateur = s.id_spectateur
+GROUP BY a.id_spectateur, s.nom, s.prenom
+HAVING COUNT(DISTINCT a.id_plateforme) = (SELECT COUNT(*) FROM PLATEFORME);
+
+--13) Quels abonnés ont regardé au moins un film de chaque catégorie disponible ?
+SELECT s.id_spectateur, s.nom, s.prenom
+FROM SPECTATEUR s, VISIONNE v, FILMEPISODE f,  CLASSER c, CATEGORIE cat
+WHERE s.id_spectateur = v.id_spectateur AND v.id_film = f.id_film AND f.id_film = c.id_film AND c.id_categorie = cat.id_categorie
+GROUP BY s.id_spectateur, s.nom, s.prenom
+HAVING COUNT(DISTINCT cat.id_categorie) = (SELECT COUNT(*) FROM CATEGORIE);
+
+--21) Pour chaque tranche d'âge (16-35 ans, 36-55 ans, 56+), déterminer la catégorie (genre de film ou série) ayant le plus grand nombre de visionnages.
+SELECT tranche_age, genre, MAX(nb_visionnages) AS nb_max_visionnages
+FROM (
+    SELECT
+        CASE
+            WHEN s.age BETWEEN 16 AND 35 THEN '16-35'
+            WHEN s.age BETWEEN 36 AND 55 THEN '36-55'
+            WHEN s.age > 55 THEN '56+'
+        END AS tranche_age,
+        cat.genre AS genre,
+        COUNT(v.id_visionnage) AS nb_visionnages
+    FROM VISIONNE v
+    JOIN SPECTATEUR s ON v.id_spectateur = s.id_spectateur
+    JOIN CLASSER c ON v.id_film = c.id_film
+    JOIN CATEGORIE cat ON c.id_categorie = cat.id_categorie
+    GROUP BY
+        CASE
+            WHEN s.age BETWEEN 16 AND 35 THEN '16-35'
+            WHEN s.age BETWEEN 36 AND 55 THEN '36-55'
+            WHEN s.age > 55 THEN '56+'
+        END,
+        cat.genre
+)
+GROUP BY tranche_age, genre
+ORDER BY tranche_age;
