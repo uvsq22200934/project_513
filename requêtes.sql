@@ -99,14 +99,14 @@ group by p.sexe,
 --Donner le nombre de films qui n'ont pas de critique.
 SELECT COUNT(f.id_film)
 FROM FILMEPISODE f
-WHERE f.id_film NOT in (SELECT c.id_film FROM CRITIQUE ) ;
+WHERE f.id_film NOT in (SELECT c.id_film FROM CRITIQUE c ) ;
 
 --Trouver pour le film Vaiana 1 , la plateforme de visionnage sur laquelle il est disponible dans le plus de langues.
 SELECT v.id_plateforme, count(DISTINCT v.langue_audio) + count(DISTINCT v.langue_sous_titre) as total_langues_dispo
 FROM VISIONNE v, FILMEPISODE f, PLATEFORME p
 WHERE v.id_film = f.id_film
   and p.id_plateforme = v.id_plateforme
-  and f.titre = 'Titanic'
+  and f.titre = 'Vaiana 1'
 group by p.id_plateforme
 order by total_langues_dispo DESC
 FETCH FIRST ROW ONLY;
